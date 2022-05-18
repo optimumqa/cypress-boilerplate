@@ -1,0 +1,29 @@
+{
+  "name": "cypress-multi-product-template",
+  "version": "0.0.1",
+  "description": "Cypress Multi Product Template",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cypress open",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "dependencies": {
+    "cypress": "9.6.1",
+    "cypress-multi-reporters": "^1.6.0",
+    "del": "^6.1.0",
+    "eslint": "^8.15.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "lodash": "^4.17.21",
+    "mocha": "^10.0.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0",
+    "typescript": "^4.6.4"
+  },
+  "devDependencies": {
+    "grunt": "^1.5.3",
+    "grunt-exec": "^3.0.0"
+  }
+}

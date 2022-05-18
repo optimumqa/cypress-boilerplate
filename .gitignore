@@ -1,0 +1,33 @@
+# Project specific
+node_modules
+mochareports/
+cypress/videos/
+cypress/screenshots/
+cypress/reports/
+cypress/downloads/
+cypress/configs/cypress.local.json
+
+# OS specific
+.DS_Store
+
+# Local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+*.sublime-*
+
+/tests/coverage/
+/tests/e2e/reports/
+selenium-debug.log
