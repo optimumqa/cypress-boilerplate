@@ -1,6 +1,11 @@
-# cypress-multi-product-template
+<h1 align="center">Welcome to cypress-multi-product-template 👋</h1>
+<a href="https://github.com/optimumqa/cypress-multi-product-template/blob/main/LICENSE">
+  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
+</a>
 
-## Project structure
+> Template for one or multiple products.<br /> `cypress-multi-product-templates` saves you from most of the trouble when configuring tests.
+
+## ✨ Project structure
 
 ```
 - cypress/
@@ -32,7 +37,7 @@ Create a file `cypress.local.json` inside ./configs/. Your local config will be 
 
 `grunt exec:generateLocalConfig`
 
-## Developing
+## 🚀 Developing
 
 ### Adding a new product
 
@@ -127,3 +132,16 @@ Summary
 
 - Project is dynamically set up based on the three CLI Arguments above
 - If you specify baseURL or testFiles they will not be overwritten
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome.<br />
+Feel free to check [issues page](https://github.com/optimumqa/cypress-multi-product-template/issues) if you want to contribute.<br />
+
+## Show your support
+
+Please ⭐️ this repository if this project helped you!
+
+## 📝 License
+
+This project is [MIT](https://github.com/optimumqa/cypress-multi-product-template/blob/main/LICENSE) licensed.
