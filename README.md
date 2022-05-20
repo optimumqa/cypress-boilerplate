@@ -23,19 +23,23 @@
 - cypress/
 
   - configs/
-    - default/
+    - team/
+      - project/
+        - default.json
     - cypress.local.json
   - downloads/
   - fixtures/
+    - team/
+      - project/
+        routes.json
   - integration/
-    - default/
-      - web/
-      - mobile/
+    - team/
+      - project/
+        - default.spec.js
   - plugins/
   - screenshots/
   - support/
-    - tid100/
-      - commands.ts
+    - commands.ts
   - videos/
 ```
 
@@ -56,7 +60,7 @@ Create a file `cypress.local.json` inside ./configs/. Your local config will be 
 #### CLI
 
 Example
-`grunt exec:addProduct:myProduct`
+`grunt exec:add:myProduct`
 
 This will create following structure
 
@@ -72,9 +76,27 @@ This will create following structure
       - default.spec.js
 ```
 
+You can also add a team. It's optional
+
+Example
+`grunt exec:add:myProduct:teamOne`
+
+This will create following structure
+
+```
+- configs/
+  - teamOne/
+    - myProduct
+     default.json
+- integration/
+  - teamOne/
+     - myProduct
+      - default.spec.js
+```
+
 You can modify this in `./GruntFile.js`
 
-#### Manual
+#### Manual way
 
 Let's assume we need to add a new product myProduct. The product has only web channel supported.
 
@@ -107,43 +129,43 @@ CLI Arguments
 
 | name      | type     | default   | description                                                                                          |
 | --------- | -------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| `product` | `String` | `default` | Product name                                                                                         |
+| `product` | `String` |           | Product name                                                                                         |
+| `team`    | `String` |           | Team name                                                                                            |
 | `env`     | `String` | `staging` | Any environment you support                                                                          |
 | `type`    | `String` | `default` | Used for targeting specific config inside `configs/productName/`. Daily, weekly, smoke, you name it. |
 
 Command Naming convention
 
-- `product+environment+type`
+- `team+product+environment+type`
 
 Here are some example commands:
 
 ```json
 {
   "scripts": {
-    "myProduct-staging": "cypress run --env product=myProduct,env=staging",
+    "teamOne-myProduct-staging": "cypress run --env team=teamOne,product=myProduct,env=staging",
     "myProduct-master-daily": "cypress run --env product=myProduct,env=master,type=daily",
     "myProduct2-staging-weekly": "cypress run --env product=myProduct2,env=staging,type=weekly"
   }
 }
 ```
 
-(NOTE) There is no need to specify test files.
+There is no need to specify test files.
 
 Behind the scenes:
 
 - `plugins/index.js` - Starting point
 - `plugins/Config.js` - CLI Arguments are being processed
 - Global config `./cypress.json` is merged with `cypress/config/${product}/${type}.json`
-- If `product` is not specified,`cypress.local.json` will be used if it exists
-- If neither of the three above configs has `testFiles` specified, the're automatically created and pointing to `integration/${product}/**/*`
-- If `baseUrl` is not specified in either of the three above configs, it's created automatically
+- If `product` is not specified project cant be run
+- If neither of the two above configs has `testFiles` specified, the're automatically created and pointing to `integration/${product}/**/*`
+- If `baseUrl` is not specified in either of the two above configs, it's created automatically
 - `baseUrl` is retrieved from `fixtures/routes.json`
-- If `product` is not specified, `baseUrl` will be set to `routes[env].products.default.baseUrl`
 
 Summary
 
-- Project is dynamically set up based on the three CLI Arguments above
-- If you specify baseURL or testFiles they will not be overwritten
+- Project is dynamically set up based on the four CLI Arguments above
+- If you specify baseURL or testFiles in configs, they will not be overwritten
 
 ## 🤝 Contributing
 
