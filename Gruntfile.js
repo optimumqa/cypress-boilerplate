@@ -4,61 +4,63 @@ module.exports = function (grunt) {
   const CONFIG = {
     cwd: './cypress',
     productPrefix: '',
-    channels: ['web', 'mobile'],
   }
 
   let productName = CONFIG.productPrefix
+  let team = ''
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     exec: {
-      addProduct: {
+      add: {
         cwd: CONFIG.cwd,
-        cmd(product) {
+        cmd(_product, _team) {
           console.time('addProduct')
 
-          productName += product
+          productName += _product
+          team = _team
 
           const intro = () =>
             `echo "Adding product: ${productName}\n` + //
             `Product prefix: ${CONFIG.productPrefix}\n` +
-            `Channels: ${JSON.stringify(CONFIG.channels)}\n" &&`
+            `Adding team: ${team}\n" &&`
 
-          const integration = () => {
-            let finalString = ''
-            CONFIG.channels.forEach((channel) => {
-              finalString +=
-                `mkdir -p integration/${productName}/${channel} &&` + //
-                `echo "" > integration/${productName}/${channel}/default.spec.ts &&`
-            })
-
-            return finalString
-          }
+          const integration = () =>
+            `mkdir -p integration/${team ? team + '/' : ''}${productName} &&` + //
+            `echo "" > integration/${team ? team + '/' : ''}${productName}/default.spec.ts &&`
 
           const configs = () =>
-            `mkdir -p configs/${productName} &&` + //
-            `echo "{}" > configs/${productName}/default.json &&`
+            `mkdir -p configs/${team ? team + '/' : ''}${productName} &&` + //
+            `echo "{}" > configs/${team ? team + '/' : ''}${productName}/default.json &&`
+
+          const fixtures = () =>
+            `mkdir -p fixtures/${team ? team + '/' : ''}${productName} &&` + //
+            `echo "{}" > fixtures/${team ? team + '/' : ''}${productName}/routes.json &&`
 
           const outro = () =>
-            `echo "Here is a command for you to get started (add to package.json) -> ` +
-            `'${productName}-staging: cypress open --env product=${productName},env=staging'" &&` +
-            `echo "Dont forget to add [${productName}] urls in fixtures/routes.json\n"`
+            `echo 'Here is a command to get started (add to package.json) -> "${
+              team ? team + '-' : ''
+            }${productName}-staging": "cypress open --env ${
+              team ? 'team=' + team + ',' : ''
+            }product=${productName},env=staging"'`
 
           return (
             intro() + //
             integration() +
             configs() +
+            fixtures() +
             outro()
           )
         },
         callback() {
-          CONFIG.channels.forEach((channel) => {
-            console.log(`Created -> integration/${productName}/${channel}`)
-            console.log(`Created -> integration/${productName}/${channel}/default.spec.ts`)
-          })
+          console.log(`New file: integration/${team ? team + '/' : ''}${productName}`)
+          console.log(`New file: integration/${team ? team + '/' : ''}${productName}/default.spec.ts`)
 
-          console.log(`Created -> configs/${productName}`)
-          console.log(`Created -> configs/${productName}/default.json\n`)
+          console.log(`New file: configs/${team ? team + '/' : ''}${productName}`)
+          console.log(`New file: configs/${team ? team + '/' : ''}${productName}/default.json\n`)
+
+          console.log(`New file: fixtures/${team ? team + '/' : ''}${productName}`)
+          console.log(`New file: fixtures/${team ? team + '/' : ''}${productName}/default.json\n`)
 
           console.timeEnd('addProduct')
         },

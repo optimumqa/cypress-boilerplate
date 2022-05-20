@@ -4,11 +4,7 @@
   "description": "Cypress Multi Product Template",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "start": "cypress open",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
-  },
+  "scripts": {},
   "dependencies": {
     "cypress": "9.6.1",
     "cypress-multi-reporters": "^1.6.0",

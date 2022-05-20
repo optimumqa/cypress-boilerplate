@@ -16,17 +16,14 @@ const PLUGINS = {
     },
     {
       name: 'Config',
-      logging: true,
       enabled: true,
       config: {},
       instance: null,
     },
     {
-      name: 'URL', // must be last
+      name: 'URL',
       enabled: true,
-      config: {
-        logging: true,
-      },
+      config: {},
       instance: null,
     },
   ],
@@ -47,13 +44,9 @@ module.exports = (on, config) => {
     if (plugin.enabled) {
       const _plugin = require(`./${plugin.name}`)
 
-      const _config = plugin.name === 'URL' ? PLUGINS.get('Config').instance.get() : config
-
-      plugin.instance = new _plugin(on, _config, plugin.config)
+      plugin.instance = new _plugin(on, config, plugin.config)
     }
   })
-
-  console.log('[Plugin:Index] Generated config: \n', PLUGINS.get('Config').instance.get())
 
   return PLUGINS.get('Config').instance.get()
 }

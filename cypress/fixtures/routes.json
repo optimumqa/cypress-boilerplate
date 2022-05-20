@@ -1,9 +1,0 @@
-{
-  "staging": {
-    "products": {
-      "default": {
-        "baseUrl": "http://localhost:8080"
-      }
-    }
-  }
-}
