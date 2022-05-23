@@ -96,31 +96,6 @@ This will create following structure
 
 You can modify this in `./GruntFile.js`
 
-#### Manual way
-
-Let's assume we need to add a new product myProduct. The product has only web channel supported.
-
-1. `integration/`
-
-   - Create a directory `web/` inside `myProduct/`
-   - Write your tests inside it
-   - End result `integration/myProduct/web/`
-
-2. `configs/`.
-
-   - Create a new directory `myProduct/`
-   - Create a new file named `default.json` and make it empty `{}`
-   - End result `configs/myProduct/default.json`
-
-3. `fixtures/routes.json`
-
-   - Add routes for all channels supported by the product
-
-4. `package.json`
-   - Add your commands in scripts
-   - Commands follow next naming convention: `product-channel-type`
-   - Example `myProduct-release: cypress run --env product=myProduct,env=release`
-
 # Project flow
 
 ## Adding new scripts in package.json
