@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {},
   "dependencies": {
-    "cypress": "9.6.1",
+    "cypress": "9.7.0",
     "cypress-multi-reporters": "^1.6.0",
     "del": "^6.1.0",
     "eslint": "^8.15.0",
