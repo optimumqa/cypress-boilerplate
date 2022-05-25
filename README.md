@@ -15,7 +15,7 @@
   <img alt="Javascript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" target="_blank" />
 </a>
 
-> Template for one or multiple products.<br /> `cypress-multi-product-templates` saves you from most of the trouble when configuring tests.
+> Template for one or multiple products.<br /> `cypress-multi-product-templates` saves you from most of the trouble when configuring.
 
 ## ✨ Project structure
 
@@ -35,23 +35,20 @@
   - integration/
     - team/
       - project/
-        - default.spec.js
+        - default.spec.ts
   - plugins/
   - screenshots/
   - support/
+    - team/
+      - project/
+        - commands.ts
     - commands.ts
   - videos/
 ```
 
 ## Local config
 
-### Manual
-
 Create a file `cypress.local.json` inside ./configs/. Your local config will be then merged with cypress.json
-
-### CLI
-
-`grunt exec:generateLocalConfig`
 
 ## 🚀 Developing
 
@@ -59,46 +56,43 @@ Create a file `cypress.local.json` inside ./configs/. Your local config will be 
 
 #### CLI
 
-Example
-`grunt exec:add:myProduct`
+![Example](https://github.com/optimumqa/md-images/cypress-multi-product-template-adding-project.png)
 
-This will create following structure
+Example
+`$ npm run add-project`
+
+You can omit the team
+
+This will create the following structure and inject new scripts to run in package.json. It will also import commands from newly created directory.
 
 ```
 - configs/
-  - myProduct/
-    default.json
+  - team/
+    - product/
+      default.json
+- fixtures/
+  - team/
+    - product/
+      - routes.js
 - integration/
-  - myProduct/
-    - web/
-      - default.spec.js
-    - mobile/
-      - default.spec.js
+  - team/
+    - product/
+      - default.spec.ts
+- support/
+  - team/
+    - product/
+      - commands.ts
 ```
 
-You can also add a team. It's optional
+You can modify this in `./_templates/project/with-prompt/`
+Environments are listed in:
 
-Example
-`grunt exec:add:myProduct:teamOne`
-
-This will create following structure
-
-```
-- configs/
-  - teamOne/
-    - myProduct
-     default.json
-- integration/
-  - teamOne/
-     - myProduct
-      - default.spec.js
-```
-
-You can modify this in `./GruntFile.js`
+- `./_templates/project/with-prompt/fixtures.ejs.t`
+- `./_templates/project/with-prompt/package.ejs.t`
 
 # Project flow
 
-## Adding new scripts in package.json
+## Adding new scripts to package.json
 
 CLI Arguments
 

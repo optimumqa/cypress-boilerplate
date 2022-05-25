@@ -21,7 +21,6 @@
     "typescript": "^4.6.4"
   },
   "devDependencies": {
-    "grunt": "^1.5.3",
     "hygen": "^6.2.0"
   }
 }
