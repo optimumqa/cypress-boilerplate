@@ -56,7 +56,7 @@ Create a file `cypress.local.json` inside ./configs/. Your local config will be 
 
 #### CLI
 
-![Example](https://github.com/optimumqa/md-images/cypress-multi-product-template-adding-project.png)
+![Example](https://github.com/optimumqa/cypress-multi-product-template/blob/main/md-images/cypress-multi-product-template-adding-project.png)
 
 Example
 `$ npm run add-project`
