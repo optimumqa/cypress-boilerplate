@@ -84,7 +84,7 @@ This will create the following structure and inject new scripts to run in packag
       - commands.ts
 ```
 
-You can modify this in `./_templates/project/with-prompt/`
+You can modify this in `./_templates/project/with-prompt/` <br/>
 Environments are listed in:
 
 - `./_templates/project/with-prompt/fixtures.ejs.t`
