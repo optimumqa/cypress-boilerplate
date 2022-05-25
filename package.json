@@ -4,7 +4,9 @@
   "description": "Cypress Multi Product Template",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "add-project": "hygen project with-prompt && prettier --write ."
+  },
   "dependencies": {
     "cypress": "9.7.0",
     "cypress-multi-reporters": "^1.6.0",
@@ -20,6 +22,6 @@
   },
   "devDependencies": {
     "grunt": "^1.5.3",
-    "grunt-exec": "^3.0.0"
+    "hygen": "^6.2.0"
   }
 }
