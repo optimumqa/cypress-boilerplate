@@ -46,24 +46,20 @@
   - videos/
 ```
 
-## Local config
+## Adding a new product
 
-Create a file `cypress.local.json` inside ./configs/. Your local config will be then merged with cypress.json
+### CLI
 
-## 🚀 Developing
-
-### Adding a new product
-
-#### CLI
-
-![Example](https://github.com/optimumqa/cypress-multi-product-template/blob/main/md-images/cypress-multi-product-template-adding-project.png)
+![npm-run-add-project](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/cns7m5lfeko5im3w16qn.png)
 
 Example
 `$ npm run add-project`
 
-You can omit the team
+It will ask you for your team and project name. **Project name is mandatory**. <br/>
 
-This will create the following structure and inject new scripts to run in package.json. It will also import commands from newly created directory.
+> You can omit the team if you don't need this level of separation.
+
+This will create the following structure and inject new scripts in package.json.
 
 ```
 - configs/
@@ -84,24 +80,52 @@ This will create the following structure and inject new scripts to run in packag
       - commands.ts
 ```
 
-You can modify this in `./_templates/project/with-prompt/` <br/>
-Environments are listed in:
+### Structure explained
+
+- **configs/team/product**
+
+Here you can have different cypress configs product specific. Which config is used is determined by the `type` argument while running cypress. <br/>
+
+For example if `type=daily` then `configs/team/products/daily.json` is used and merged with ./cypress.json.
+
+- **fixtures/team/product/routes.json**
+
+Here is the place to store your `baseUrl` per environment. See bellow where you can configure these environments.
+
+- **cypress/integration/team/product/**
+
+Here come your spec files.
+
+- **cypress/support/team/product/**
+
+Add your projects commands here. These are afterwards loaded after global commands.
+
+> You can modify this generator in `./_templates/project/with-prompt/`.
+ <br/>
+
+Change defaults environments here:
 
 - `./_templates/project/with-prompt/fixtures.ejs.t`
 - `./_templates/project/with-prompt/package.ejs.t`
 
-# Project flow
+### Local config
 
-## Adding new scripts to package.json
+Create a file `cypress.local.json` inside ./configs/. Your local config will be then merged with the products config and global cypress.json.
 
-CLI Arguments
+It is ignored by GIT.
+
+## Project flow
+
+### Adding new scripts to package.json
+
+Arguments
 
 | name      | type     | default   | description                                                                                          |
 | --------- | -------- | --------- | ---------------------------------------------------------------------------------------------------- |
 | `product` | `String` |           | Product name                                                                                         |
 | `team`    | `String` |           | Team name                                                                                            |
 | `env`     | `String` | `staging` | Any environment you support                                                                          |
-| `type`    | `String` | `default` | Used for targeting specific config inside `configs/productName/`. Daily, weekly, smoke, you name it. |
+| `type`    | `String` | `default` | Used for targeting specific config inside `configs/team/product/`. Daily, weekly, smoke, you name it. |
 
 Command Naming convention
 
@@ -112,29 +136,40 @@ Here are some example commands:
 ```json
 {
   "scripts": {
-    "teamOne-myProduct-staging": "cypress run --env team=teamOne,product=myProduct,env=staging",
-    "myProduct-master-daily": "cypress run --env product=myProduct,env=master,type=daily",
-    "myProduct2-staging-weekly": "cypress run --env product=myProduct2,env=staging,type=weekly"
+    "team-product-staging": "cypress run --env team=team,product=product,env=staging",
+    "product-master-daily": "cypress run --env product=product,env=master,type=daily",
+    "product2-staging-weekly": "cypress run --env product=product2,env=staging,type=weekly"
   }
 }
 ```
 
-There is no need to specify test files.
+There is no need to specify test files. If test files are not specified they'll be automatically set, depending on `team` and `product`, from `cypress/integration/`.
 
 Behind the scenes:
 
-- `plugins/index.js` - Starting point
-- `plugins/Config.js` - CLI Arguments are being processed
+- `plugins/index.js`
+Starting point
+
+- `plugins/Config.js`
+CLI Arguments are being processed
+
 - Global config `./cypress.json` is merged with `cypress/config/${product}/${type}.json`
+
+- Local config(if exists) `./cypress/configs/cypress.local.json` is merged with the two above
+
 - If `product` is not specified project cant be run
-- If neither of the two above configs has `testFiles` specified, the're automatically created and pointing to `integration/${product}/**/*`
-- If `baseUrl` is not specified in either of the two above configs, it's created automatically
-- `baseUrl` is retrieved from `fixtures/routes.json`
+Yes, this means that this project can't be run with just `cypress open` or `cypress run`.
+
+- If neither of the three above configs has `testFiles` specified, the're automatically created and pointing to `integration/${product}/**/*`
+
+- If `baseUrl` is not specified in either of the three above configs, it's created automatically
+
+- `baseUrl` is retrieved from `fixtures/team/product/routes.json` depending on environment
 
 Summary
 
-- Project is dynamically set up based on the four CLI Arguments above
-- If you specify baseURL or testFiles in configs, they will not be overwritten
+- Project is dynamically set up based on the four arguments above
+- If you specify `baseURL` or `testFiles` in configs, they will not be overwritten.
 
 ## 🤝 Contributing
 
