@@ -166,6 +166,40 @@ Yes, this means that this project can't be run with just `cypress open` or `cypr
 
 - `baseUrl` is retrieved from `fixtures/team/product/routes.json` depending on environment
 
+## Plugins
+
+Plugins are located in `./cypress/plugins/`.
+
+All plugins are enabled by default and are processed inside `./cypress/plugins/index.js`
+
+### Store plugin
+
+Enables you to create stores while running your spec files.
+
+Example of setting a new item into CommonStore. If the store does not exist, it will be created:
+```js
+cy.task('setItem', {
+  storeId: 'CommonStore',
+  item: {
+    name: 'token',
+    value: 'blabla'
+  }
+})
+```
+
+Example getting an item from a store:
+```js
+cy.task('getItem', {
+  storeId: 'CommonStore',
+  item: {
+    name: 'token'
+  }
+}).then((item) => {
+  console.log(item)
+})
+```
+
+
 Summary
 
 - Project is dynamically set up based on the four arguments above
