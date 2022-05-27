@@ -15,7 +15,7 @@
   <img alt="Javascript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" target="_blank" />
 </a>
 
-> Template for one or multiple products.<br /> `cypress-multi-product-templates` saves you from most of the trouble when configuring.
+> Template for one or multiple products.<br /> `cypress-multi-product-templates` saves you from all of the trouble when configuring.
 
 ## ✨ Project structure
 
