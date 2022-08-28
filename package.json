@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cypress-multi-reporters": "^1.6.0",
+    "cypress-localstorage-commands": "^1.7.0",
     "del": "^6.1.0",
     "eslint": "^8.15.0",
     "eslint-plugin-cypress": "^2.12.1",
@@ -17,7 +18,8 @@
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.2.1",
     "mochawesome-report-generator": "^6.2.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "moment": "^2.29.3"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.2",

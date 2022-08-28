@@ -15,6 +15,7 @@ class URL {
   }
 
   init(on, config, pluginConfig) {
+    console.log(config)
     this.set(config)
 
     if (this.CONFIG.logging) {
@@ -24,12 +25,11 @@ class URL {
 
   set(config) {
     if (!config.baseUrl) {
-      let { product, team, env } = config.env
-      const routes = require(`../fixtures/${team ? team + '/' : ''}${product}/routes.json`)
+      let { PRODUCT, TEAM, ENV } = config.env
+      const routes = require(`../fixtures/${TEAM ? TEAM + '/' : ''}${PRODUCT}/routes.json`)
 
-      this.url = routes[env].baseUrl
+      this.url = routes[ENV].baseUrl
       config.baseUrl = this.url
-      config.env.baseUrl = this.url
     }
   }
 }

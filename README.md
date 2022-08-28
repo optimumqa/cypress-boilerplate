@@ -101,7 +101,7 @@ Here come your spec files.
 Add your projects commands here. These are afterwards loaded after global commands.
 
 > You can modify this generator in `./_templates/project/with-prompt/`.
- <br/>
+> <br/>
 
 Change defaults environments here:
 
@@ -120,11 +120,11 @@ It is ignored by GIT.
 
 Arguments
 
-| name      | type     | default   | description                                                                                          |
-| --------- | -------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| `product` | `String` |           | Product name                                                                                         |
-| `team`    | `String` |           | Team name                                                                                            |
-| `env`     | `String` | `staging` | Any environment you support                                                                          |
+| name      | type     | default   | description                                                                                           |
+| --------- | -------- | --------- | ----------------------------------------------------------------------------------------------------- |
+| `product` | `String` |           | Product name                                                                                          |
+| `team`    | `String` |           | Team name                                                                                             |
+| `env`     | `String` | `staging` | Any environment you support                                                                           |
 | `type`    | `String` | `default` | Used for targeting specific config inside `configs/team/product/`. Daily, weekly, smoke, you name it. |
 
 Command Naming convention
@@ -148,17 +148,17 @@ There is no need to specify test files. If test files are not specified they'll 
 Behind the scenes:
 
 - `plugins/index.js`
-Starting point
+  Starting point
 
 - `plugins/Config.js`
-CLI Arguments are being processed
+  CLI Arguments are being processed
 
 - Global config `./cypress.json` is merged with `cypress/config/${product}/${type}.json`
 
 - Local config(if exists) `./cypress/configs/cypress.local.json` is merged with the two above
 
 - If `product` is not specified project cant be run
-Yes, this means that this project can't be run with just `cypress open` or `cypress run`.
+  Yes, this means that this project can't be run with just `cypress open` or `cypress run`.
 
 - If neither of the three above configs has `testFiles` specified, the're automatically created and pointing to `integration/${product}/**/*`
 
@@ -177,28 +177,29 @@ All plugins are enabled by default and are processed inside `./cypress/plugins/i
 Enables you to create stores while running your spec files.
 
 Example of setting a new item into CommonStore. If the store does not exist, it will be created:
+
 ```js
 cy.task('setItem', {
   storeId: 'CommonStore',
   item: {
     name: 'token',
-    value: 'blabla'
-  }
+    value: 'blabla',
+  },
 })
 ```
 
 Example getting an item from a store:
+
 ```js
 cy.task('getItem', {
   storeId: 'CommonStore',
   item: {
-    name: 'token'
-  }
+    name: 'token',
+  },
 }).then((item) => {
   console.log(item)
 })
 ```
-
 
 Summary
 

@@ -44,9 +44,13 @@ module.exports = (on, config) => {
     if (plugin.enabled) {
       const _plugin = require(`./${plugin.name}`)
 
-      plugin.instance = new _plugin(on, config, plugin.config)
+      const _config = plugin.name === 'URL' ? PLUGINS.get('Config').instance.get() : config
+
+      plugin.instance = new _plugin(on, _config, plugin.config)
     }
   })
+
+  console.log('[Plugin:Index] Generated config: \n', PLUGINS.get('Config').instance.get())
 
   return PLUGINS.get('Config').instance.get()
 }
