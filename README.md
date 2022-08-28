@@ -21,7 +21,6 @@
 
 ```
 - cypress/
-
   - configs/
     - team/
       - project/
@@ -48,65 +47,110 @@
 
 ## Adding a new product
 
-### CLI
+### Example
 
-![npm-run-add-project](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/cns7m5lfeko5im3w16qn.png)
+![npm-run-add-project](https://github.com/optimumqa/cypress-multi-product-template/tree/main/md-images/hygen-example1.png)
 
 Example
-`$ npm run add-project`
 
-It will ask you for your team and project name. **Project name is mandatory**. <br/>
+```sh
+$ npm run add-project
+```
+
+It will ask you for your team name, project name, and baseUrl. **Team name is optional**. <br/>
 
 > You can omit the team if you don't need this level of separation.
 
-This will create the following structure and inject new scripts in package.json.
+The example from image above would create the following structure and inject new scripts in package.json.
 
 ```
 - configs/
-  - team/
-    - product/
+  - TeamTest/
+    - /projectA
       default.json
 - fixtures/
-  - team/
-    - product/
+  - TeamTest/
+    - projectA/
       - routes.js
 - integration/
-  - team/
-    - product/
+  - TeamTest/
+    - projectA/
       - default.spec.ts
 - support/
-  - team/
-    - product/
+  - TeamTest/
+    - projectA/
       - commands.ts
+      - index.ts
 ```
+
+After this, simply run
+
+```sh
+$ npm run Teamtest-projectA-staging
+```
+
+or if you have omitted the team, the command would be
+
+```sh
+$ npm run projectA-staging
+```
+
+> You can see that the generator has injected 3 default scripts into package.json
+
+```json
+{
+  ...
+  "scripts": {
+    "TeamTest-projectA-staging": "cypress open --env team=TeamTest,product=projectA,env=staging",
+    "TeamTest-projectA-release": "cypress open --env team=TeamTest,product=projectA,env=release",
+    "TeamTest-projectA-production": "cypress open --env team=TeamTest,product=projectA,env=production",
+  }
+  ...
+}
+```
+
+When run, it will specify only the test files in `cypress/integration/TeamTest/projectA`.
 
 ### Structure explained
 
 - **configs/team/product**
 
-Here you can have different cypress configs product specific. Which config is used is determined by the `type` argument while running cypress. <br/>
+Here you can have different cypress configs per product. Which config is used is determined by the `type` argument while running cypress in the CLI. <br/>
 
-For example if `type=daily` then `configs/team/products/daily.json` is used and merged with ./cypress.json.
+For example if we add the following script to our `package.json`
 
-- **fixtures/team/product/routes.json**
+```json
+{
+  ...
+  "TeamTest-projectA-staging-daily: cypress open --env team=TeamTest,product=projectA,env=staging,type=daily"
+  ...
+}
+```
 
-Here is the place to store your `baseUrl` per environment. See bellow where you can configure these environments.
+and then run it
 
-- **cypress/integration/team/product/**
+```sh
+$ npm run TeamTest-projectA-staging-daily
+```
 
-Here come your spec files.
+then `configs/TestTeam/projectA/daily.json` is used and merged with `./cypress.json`.
 
-- **cypress/support/team/product/**
+This gives you an extra level of configuration for different test types where you need to target only specific spec files, all while keeping the package.json scripts part clean
 
-Add your projects commands here. These are afterwards loaded after global commands.
+- **fixtures/TestTeam/projectA/routes.json**
 
-> You can modify this generator in `./_templates/project/with-prompt/`.
-> <br/>
+Here is the place to define your `baseUrl` per each environment. See bellow where you can configure default environments when Hygen is run.
 
-Change defaults environments here:
+- **cypress/integration/TestTeam/projectA/**
 
-- `./_templates/project/with-prompt/fixtures.ejs.t`
-- `./_templates/project/with-prompt/package.ejs.t`
+Here are your spec files as usual.
+
+- **cypress/support/TestTeam/projectA/**
+
+Your projects commands are here.
+
+> If you have multiple projects, keep in mind that you will have access only to the commands from the `team + project` you've run in the CLI.
+> This is done so that commands from multiple products do not override each other if they're the same name.
 
 ### Local config
 
@@ -116,7 +160,7 @@ It is ignored by GIT.
 
 ## Project flow
 
-### Adding new scripts to package.json
+### Adding new custom scripts to package.json
 
 Arguments
 
@@ -143,7 +187,7 @@ Here are some example commands:
 }
 ```
 
-There is no need to specify test files. If test files are not specified they'll be automatically set, depending on `team` and `product`, from `cypress/integration/`.
+There is no need to specify test files. If test files are not specified they'll be automatically set(depending on `team` and `product` from CLI).
 
 Behind the scenes:
 
@@ -157,14 +201,14 @@ Behind the scenes:
 
 - Local config(if exists) `./cypress/configs/cypress.local.json` is merged with the two above
 
-- If `product` is not specified project cant be run
-  Yes, this means that this project can't be run with just `cypress open` or `cypress run`.
+- If `product` is not specified the project can't be run
+  Yes, this means that this project can't be run with just `cypress open` or `cypress run`. You need to specify exactly what you want to run
 
-- If neither of the three above configs has `testFiles` specified, the're automatically created and pointing to `integration/${product}/**/*`
+- If neither of the three cypress configs above has `testFiles` specified, the're automatically created and pointing to `integration/${team}/${product}/**/*`
 
 - If `baseUrl` is not specified in either of the three above configs, it's created automatically
 
-- `baseUrl` is retrieved from `fixtures/team/product/routes.json` depending on environment
+- `baseUrl` is retrieved from `fixtures/team/product/routes.json` depending on the environment
 
 ## Plugins
 
@@ -201,7 +245,29 @@ cy.task('getItem', {
 })
 ```
 
-Summary
+### Delete passed video plugin
+
+Documentation coming soon.
+
+### Config plugin
+
+Documentation coming soon.
+
+### URL plugin
+
+Documentaiton coming soon.
+
+## Hygen part
+
+> You can modify the generator in `./_templates/project/with-prompt/`.
+> <br/>
+
+If you need to change default environments, they're declared in these files:
+
+- `./_templates/project/with-prompt/fixtures.ejs.t`
+- `./_templates/project/with-prompt/package.ejs.t`
+
+## Summary
 
 - Project is dynamically set up based on the four arguments above
 - If you specify `baseURL` or `testFiles` in configs, they will not be overwritten.
