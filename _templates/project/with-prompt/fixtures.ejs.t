@@ -6,7 +6,7 @@ to: cypress/fixtures/<%- team %>/<%- project %>/routes.json
 {
   <% environments.forEach((env, index) => { %>
   "<%= env %>": {
-    "baseUrl": ""
+    "baseUrl": "<%= baseUrl %>"
   }<%= environments.length - 1 === index ? '': ',' -%>
   <% }) %>
 }

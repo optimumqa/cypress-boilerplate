@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "add-project": "hygen project with-prompt && prettier --write ."
+    "add-project": "hygen project with-prompt && prettier --write . >/dev/null"
   },
   "dependencies": {
     "cypress-multi-reporters": "^1.6.0",
