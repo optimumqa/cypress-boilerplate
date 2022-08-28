@@ -49,7 +49,7 @@
 
 ### Example
 
-![npm-run-add-project](https://github.com/optimumqa/cypress-multi-product-template/tree/main/md-images/hygen-example1.png)
+![npm-run-add-project](https://github.com/optimumqa/cypress-multi-product-template/blob/main/md-images/hygen-example1.png)
 
 Example
 
