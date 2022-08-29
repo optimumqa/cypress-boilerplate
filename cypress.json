@@ -4,6 +4,6 @@
   "chromeWebSecurity": false,
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
-    "configFile": "reporterOptionss.json"
+    "configFile": "reporterOptions.json"
   }
 }
