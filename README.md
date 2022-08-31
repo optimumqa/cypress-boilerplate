@@ -17,6 +17,8 @@
 
 > Template for one or multiple products.<br /> `cypress-multi-product-templates` saves you from all of the trouble when configuring.
 
+See latest report at [report-example.optimumqa.com](https://report-example.optimumqa.com)
+
 ## ✨ Project structure
 
 ```
@@ -266,6 +268,61 @@ If you need to change default environments, they're declared in these files:
 
 - `./_templates/project/with-prompt/fixtures.ejs.t`
 - `./_templates/project/with-prompt/package.ejs.t`
+
+## Reporting
+
+Location: `cypress/reports/mochawesome`
+
+Reports will only be generated with the command:
+
+```sh
+npm run posttest
+```
+
+Make sure to clear previous reports before running your tests with the command:
+
+```sh
+npm run pretest
+```
+
+## Build & Delpoy
+
+Reports are deployed to [report-example.optimumqa.com](https://report-example.optimumqa.com)
+
+Rules for triggering build and deploy:
+
+- Pull request to `main` branch
+- Push to `main` branch
+
+### Github Actions & Pages
+
+`.github/workflows/build-report.yml` is enabled.
+
+It uses the "npm run test" command to run tests, so make sure you enable it or configure it to your needs.
+
+Example:
+
+```json
+{
+  "test": "npm run your-product-staging || npm run posttest"
+}
+```
+
+After running `posttest`, it will deploy the reports in `cypress/reports/mochawesome` to your github page that you've configured.
+
+#### Custom domain
+
+If you have a custom domain, configure it in the `./CNAME`.
+
+Example
+
+```
+subdomain.your-domain.com
+```
+
+After tests are run, this file will be copied to report location automatically.
+
+To see how to configure Github pages in the repository settings, see [Github pages docs](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages).
 
 ## Summary
 
