@@ -5,5 +5,7 @@
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "configFile": "reporterOptions.json"
-  }
+  },
+  "screenshotsFolder": "cypress/reports/mochareports/screenshots",
+  "videosFolder": "cypress/reports/mochareports/videos"
 }
