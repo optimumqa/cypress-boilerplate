@@ -17,8 +17,6 @@
 
 > Template for one or multiple products.<br /> `cypress-multi-product-templates` saves you from all of the trouble when configuring.
 
-See latest report at [report-example.optimumqa.com](https://report-example.optimumqa.com)
-
 ## ✨ Project structure
 
 ```
