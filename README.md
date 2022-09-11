@@ -65,20 +65,20 @@ The example from image above would create the following structure and inject new
 
 ```
 - configs/
-  - TeamTest/
-    - /projectA
+  - foo/
+    - bar/
       default.json
 - fixtures/
-  - TeamTest/
-    - projectA/
+  - foo/
+    - bar/
       - routes.js
 - integration/
-  - TeamTest/
-    - projectA/
+  - foo/
+    - bar/
       - default.spec.ts
 - support/
-  - TeamTest/
-    - projectA/
+  - foo/
+    - bar/
       - commands.ts
       - index.ts
 ```
@@ -86,13 +86,13 @@ The example from image above would create the following structure and inject new
 After this, simply run
 
 ```sh
-$ npm run Teamtest-projectA-staging
+$ npm run foo-bar-staging
 ```
 
 or if you have omitted the team, the command would be
 
 ```sh
-$ npm run projectA-staging
+$ npm run bar-staging
 ```
 
 > You can see that the generator has injected 3 default scripts into package.json
@@ -101,15 +101,15 @@ $ npm run projectA-staging
 {
   ...
   "scripts": {
-    "TeamTest-projectA-staging": "cypress open --env team=TeamTest,product=projectA,env=staging",
-    "TeamTest-projectA-release": "cypress open --env team=TeamTest,product=projectA,env=release",
-    "TeamTest-projectA-production": "cypress open --env team=TeamTest,product=projectA,env=production",
+    "foo-bar-staging": "cypress open --env team=foo,product=bar,env=staging",
+    "foo-bar-release": "cypress open --env team=foo,product=bar,env=release",
+    "foo-bar-production": "cypress open --env team=foo,product=bar,env=production",
   }
   ...
 }
 ```
 
-When run, it will specify only the test files in `cypress/integration/TeamTest/projectA`.
+When run, it will specify only the test files in `cypress/integration/foo/bar`.
 
 ### Structure explained
 
@@ -122,7 +122,7 @@ For example if we add the following script to our `package.json`
 ```json
 {
   ...
-  "TeamTest-projectA-staging-daily: cypress open --env team=TeamTest,product=projectA,env=staging,type=daily"
+  "foo-bar-staging-daily: cypress open --env team=foo,product=bar,env=staging,type=daily"
   ...
 }
 ```
@@ -130,22 +130,22 @@ For example if we add the following script to our `package.json`
 and then run it
 
 ```sh
-$ npm run TeamTest-projectA-staging-daily
+$ npm run foo-bar-staging-daily
 ```
 
-then `configs/TestTeam/projectA/daily.json` is used and merged with `./cypress.json`.
+then `configs/foo/bar/daily.json` is used and merged with `./cypress.json`.
 
 This gives you an extra level of configuration for different test types where you need to target only specific spec files, all while keeping the package.json scripts part clean
 
-- **fixtures/TestTeam/projectA/routes.json**
+- **fixtures/foo/bar/routes.json**
 
 Here is the place to define your `baseUrl` per each environment. See bellow where you can configure default environments when Hygen is run.
 
-- **cypress/integration/TestTeam/projectA/**
+- **cypress/integration/foo/bar/**
 
 Here are your spec files as usual.
 
-- **cypress/support/TestTeam/projectA/**
+- **cypress/support/foo/bar/**
 
 Your projects commands are here.
 
@@ -180,9 +180,9 @@ Here are some example commands:
 ```json
 {
   "scripts": {
-    "team-product-staging": "cypress run --env team=team,product=product,env=staging",
-    "product-master-daily": "cypress run --env product=product,env=master,type=daily",
-    "product2-staging-weekly": "cypress run --env product=product2,env=staging,type=weekly"
+    "foo-bar-staging": "cypress run --env team=foo,product=bar,env=staging",
+    "bar-master-daily": "cypress run --env product=bar,env=master,type=daily",
+    "bar-staging-weekly": "cypress run --env product=bar,env=staging,type=weekly"
   }
 }
 ```
