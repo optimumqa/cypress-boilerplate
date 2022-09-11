@@ -1,6 +1,8 @@
 const moment = require('moment')
 import '@testing-library/cypress/add-commands'
 import 'cypress-localstorage-commands'
+// https://github.com/bahmutov/cypress-if
+import 'cypress-if'
 
 // Hygen - ScriptsImport - Do not remove this comment
 
