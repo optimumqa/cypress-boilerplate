@@ -189,27 +189,6 @@ Here are some example commands:
 
 There is no need to specify test files. If test files are not specified they'll be automatically set(depending on `team` and `product` from CLI).
 
-Behind the scenes:
-
-- `plugins/index.js`
-  Starting point
-
-- `plugins/Config.js`
-  CLI Arguments are being processed
-
-- Global config `./cypress.json` is merged with `cypress/config/${product}/${type}.json`
-
-- Local config(if exists) `./cypress/configs/cypress.local.json` is merged with the two above
-
-- If `product` is not specified the project can't be run
-  Yes, this means that this project can't be run with just `cypress open` or `cypress run`. You need to specify exactly what you want to run
-
-- If neither of the three cypress configs above has `testFiles` specified, the're automatically created and pointing to `integration/${team}/${product}/**/*`
-
-- If `baseUrl` is not specified in either of the three above configs, it's created automatically
-
-- `baseUrl` is retrieved from `fixtures/team/product/routes.json` depending on the environment
-
 ## Hygen part
 
 > You can modify the generator in `./_templates/project/with-prompt/`.
