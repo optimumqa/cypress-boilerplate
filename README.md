@@ -83,7 +83,7 @@ The example from image above would create the following structure and inject new
       - index.ts
 ```
 
-After this, simply run
+After this, simply run:
 
 ```sh
 $ npm run foo-bar-staging
