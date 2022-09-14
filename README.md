@@ -1,5 +1,5 @@
-<h1 align="center">Welcome to cypress-multi-product-template 👋</h1>
-<a href="https://github.com/optimumqa/cypress-multi-product-template/blob/main/LICENSE">
+<h1 align="center">Welcome to cypress-boilerplate 👋</h1>
+<a href="https://github.com/optimumqa/cypress-boilerplate/blob/main/LICENSE">
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
 </a>
 <a href="">
@@ -15,7 +15,7 @@
   <img alt="Javascript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" target="_blank" />
 </a>
 
-> Template for one or multiple products.<br /> `cypress-multi-product-templates` saves you from all of the trouble when configuring.
+> Template for one or multiple products.<br /> `cypress-boilerplate` saves you from all of the trouble when configuring.
 
 ## ✨ Project structure
 
@@ -49,7 +49,7 @@
 
 ### Example
 
-![npm-run-add-project](https://github.com/optimumqa/cypress-multi-product-template/blob/main/md-images/foo-bar-example.png)
+![npm-run-add-project](https://github.com/optimumqa/cypress-boilerplate/blob/main/md-images/foo-bar-example.png)
 
 Example
 
@@ -262,7 +262,7 @@ To see how to configure Github pages in the repository settings, see [Github pag
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome.<br />
-Feel free to check [issues page](https://github.com/optimumqa/cypress-multi-product-template/issues) if you want to contribute.<br />
+Feel free to check [issues page](https://github.com/optimumqa/cypress-boilerplate/issues) if you want to contribute.<br />
 
 ## Show your support
 
@@ -270,4 +270,4 @@ Please ⭐️ this repository if this project helped you!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/optimumqa/cypress-multi-product-template/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/optimumqa/cypress-boilerplate/blob/main/LICENSE) licensed.
