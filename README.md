@@ -29,6 +29,8 @@
     - [fixtures/foo/bar/routes.json](#fixturesfoobarroutesjson)
     - [cypress/integration/foo/bar/](#cypressintegrationfoobar)
     - [cypress/support/foo/bar/](#cypresssupportfoobar)
+    - [cypress/support/commands.ts](#cypresssupportcommandsts)
+    - [cypress/support/helpers.ts](#cypresssupporthelpersts)
   - [Local config](#local-config)
 - [Project flow](#project-flow)
   - [Adding new custom commands to package.json](#adding-new-custom-commands-to-packagejson)
@@ -200,6 +202,48 @@ Your projects commands are here.
 
 > If you have multiple projects, keep in mind that you will have access only to the commands from the `team + project` you've run in the CLI.
 > This is done so that commands from multiple products do not override each other if they're the same name.
+
+#### cypress/support/commands.ts
+
+Here are your global commands.
+
+#### cypress/support/helpers.ts
+
+You can import current **users** or **routes** from this file. It will give you the routes from the specified **team, and/or product** and from the specified **environment**.
+
+```js
+import { users, routes } from '../../helpers'
+
+describe('Example usage of helpers module', () => {
+  it('Should log current main user and baseUrl', () => {
+    cy.log(users.main) // object
+    cy.log(users.main.email) // random email generated every time you run Cypress
+    // This ensures your concurent jobs wont use the same user every run
+  })
+})
+```
+
+You can also import other stuff like this:
+
+```js
+import { product, team, env, type, baseUrl, getFixture, getUrl } from '../../helpers'
+
+describe('Example usage of helpers module', () => {
+  it('Should do something', () => {
+    // These below helpers are pre-configured to look for directoris depending on your current setup/run
+    // Below example shows what would be logged if you've run the project with "npm run foo-bar-staging"
+    // And you've set the baseUrl to "http://foo-bar.example.com"
+
+    cy.log(product) // bar
+    cy.log(team) //  foo
+    cy.log(env) // staging
+    cy.log(type) // default
+    cy.log(baseUrl) // http://foo-bar.example.com
+    cy.log(getFixture('foo')) // JSON Object
+    cy.log(getUrl('baseUrl')) // http://foo-bar.example.com
+  })
+})
+```
 
 ### Local config
 
