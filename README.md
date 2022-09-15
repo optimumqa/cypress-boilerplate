@@ -17,6 +17,44 @@
 
 > Template for one or multiple products.<br /> `cypress-boilerplate` saves you from all of the trouble when configuring.
 
+## Table of contents
+
+- [Add a new product](#add-a-new-product)
+  - [Example](#example)
+- [Run](#run)
+- [How we use it](#how-we-use-it)
+  - [Add a new command to scripts](#add-a-new-command-to-scripts)
+  - [Structure explained](#structure-explained)
+    - [configs/team/product](#configs-team-product)
+    - [fixtures/foo/bar/routes.json](#fixtures-foo-bar-routesjson)
+    - [cypress/integration/foo/bar/](#cypress-integration-foo-bar-)
+    - [cypress/support/foo/bar/](#cypress-support-foo-bar-)
+  - [Local config](#local-config)
+- [Project flow](#project-flow)
+  - [Adding new custom commands to package.json](#adding-new-custom-commands-to-packagejson)
+- [Hygen part](#hygen-part)
+- [Reporting](#reporting)
+- [Build & Delpoy](#build---delpoy)
+  - [Github Actions & Pages](#github-actions---pages)
+    - [Custom domain](#custom-domain)
+- [What's inside?](#what-s-inside-)
+  - [cypress-if](#cypress-if)
+  - [Prettier](#prettier)
+  - [FakerJS](#fakerjs)
+  - [cypress-iframe](#cypress-iframe)
+  - [cypress-lighthouse](#cypress-lighthouse)
+  - [cypress-localstorage-commands](#cypress-localstorage-commands)
+  - [cypress-testing-library](#cypress-testing-library)
+  - [momentjs](#momentjs)
+- [Benefits of using this boilerplate project](#benefits-of-using-this-boilerplate-project)
+  - [No configuring the project](#no-configuring-the-project)
+  - [Suitable for beginners and easy to use](#suitable-for-beginners-and-easy-to-use)
+  - [You can have 2 levels of separation](#you-can-have-2-levels-of-separation)
+- [Summary](#summary)
+- [🤝 Contributing](#---contributing)
+- [Show your support](#show-your-support)
+- [📝 License](#---license)
+
 ## Add a new product
 
 `product` refers to your project.
