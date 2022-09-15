@@ -25,13 +25,15 @@
 
 ![npm-run-add-project](https://github.com/optimumqa/cypress-boilerplate/blob/main/md-images/foo-bar-example.png)
 
-Example
-
 ```sh
 $ npm run add-project
 ```
 
-It will ask you for your **team** name, **product** name, and **baseUrl**. **team** name is optional. <br/>
+It will ask you for your:
+
+- **team** name
+- **product** name
+- **baseUrl**
 
 > You can omit the team if you don't need this level of separation.
 
@@ -112,7 +114,7 @@ $ npm test
 
 `npm test` will automatically call the `npm pretest` command before it executes. It clears previous reports and related assets.
 
-And when tests is finished, your reports will be generated also. Keeps the command line clean and simple.
+When tests is finished, your reports will be generated also. Keeps the command line clean and simple.
 
 ### Structure explained
 
@@ -120,7 +122,7 @@ And when tests is finished, your reports will be generated also. Keeps the comma
 
 Here you can have different cypress configs per product. Which config is used is determined by the `type` argument while running cypress in the CLI. <br/>
 
-For example if we add the following script to our `package.json`
+For example if we add the following command to our `package.json`
 
 ```json
 {
@@ -140,13 +142,19 @@ then `configs/foo/bar/daily.json` is used and merged with `./cypress.json`.
 
 This gives you an extra level of configuration for different test types where you need to target only specific spec files, all while keeping the package.json scripts part clean
 
+<br />
+
 #### fixtures/foo/bar/routes.json
 
 Here is the place to define your `baseUrl` per each environment. See bellow where you can configure default environments when Hygen is run.
 
+<br />
+
 #### cypress/integration/foo/bar/
 
 Here are your spec files as usual.
+
+<br />
 
 #### cypress/support/foo/bar/
 
@@ -154,6 +162,8 @@ Your projects commands are here.
 
 > If you have multiple projects, keep in mind that you will have access only to the commands from the `team + project` you've run in the CLI.
 > This is done so that commands from multiple products do not override each other if they're the same name.
+
+<br />
 
 ### Local config
 
