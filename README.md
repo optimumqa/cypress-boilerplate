@@ -118,7 +118,7 @@ When tests is finished, your reports will be generated also. Keeps the command l
 
 ### Structure explained
 
-#### configs/team/product
+`configs/team/product`
 
 Here you can have different cypress configs per product. Which config is used is determined by the `type` argument while running cypress in the CLI. <br/>
 
@@ -144,26 +144,24 @@ This gives you an extra level of configuration for different test types where yo
 
 <br />
 
-#### fixtures/foo/bar/routes.json
+`fixtures/foo/bar/routes.json`
 
 Here is the place to define your `baseUrl` per each environment. See bellow where you can configure default environments when Hygen is run.
 
 <br />
 
-#### cypress/integration/foo/bar/
+`cypress/integration/foo/bar/`
 
 Here are your spec files as usual.
 
 <br />
 
-#### cypress/support/foo/bar/
+`cypress/support/foo/bar/`
 
 Your projects commands are here.
 
 > If you have multiple projects, keep in mind that you will have access only to the commands from the `team + project` you've run in the CLI.
 > This is done so that commands from multiple products do not override each other if they're the same name.
-
-<br />
 
 ### Local config
 
