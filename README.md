@@ -63,7 +63,7 @@
 
 ### Example
 
-![npm-run-add-project](https://github.com/optimumqa/cypress-boilerplate/blob/main/md-images/foo-bar-example.png)
+![npm-run-add-project](https://github.com/optimumqa/cypress-boilerplate/blob/main/md-images/howtouse.gif)
 
 ```sh
 $ npm run add-project
