@@ -17,7 +17,9 @@
 
 > Template for one or multiple products.<br /> `cypress-boilerplate` saves you from all of the trouble when configuring.
 
-## Adding a new product
+## Add a new product
+
+`product` refers to your project.
 
 ### Example
 
@@ -29,7 +31,7 @@ Example
 $ npm run add-project
 ```
 
-It will ask you for your team name, project name, and baseUrl. **Team name is optional**. <br/>
+It will ask you for your **team** name, **product** name, and **baseUrl**. **team** name is optional. <br/>
 
 > You can omit the team if you don't need this level of separation.
 
@@ -55,7 +57,7 @@ The example from image above would create the following structure and inject new
       - index.ts
 ```
 
-After this, simply run:
+## Run
 
 ```sh
 $ npm run foo-bar-staging
@@ -73,9 +75,9 @@ $ npm run bar-staging
 {
   ...
   "scripts": {
-    "foo-bar-staging": "cypress open --env team=foo,product=bar,env=staging",
-    "foo-bar-release": "cypress open --env team=foo,product=bar,env=release",
-    "foo-bar-production": "cypress open --env team=foo,product=bar,env=production",
+    "foo-bar-staging": "cypress run --env team=foo,product=bar,env=staging",
+    "foo-bar-release": "cypress run --env team=foo,product=bar,env=release",
+    "foo-bar-production": "cypress run --env team=foo,product=bar,env=production",
   }
   ...
 }
@@ -83,9 +85,38 @@ $ npm run bar-staging
 
 When run, it will specify only the test files in `cypress/integration/foo/bar`.
 
+## How we use it
+
+Follow all the steps above then:
+
+### Add a new command to scripts
+
+```json
+// package.json
+{
+  ...
+  "scripts": {
+    ...
+    "test": "npm run foo-bar-staging || npm run posttest"
+    ...
+  }
+  ...
+}
+```
+
+Then simply run:
+
+```sh
+$ npm test
+```
+
+`npm test` will automatically call the `npm pretest` command before it executes. It clears previous reports and related assets.
+
+And when tests is finished, your reports will be generated also. Keeps the command line clean and simple.
+
 ### Structure explained
 
-- **configs/team/product**
+#### configs/team/product
 
 Here you can have different cypress configs per product. Which config is used is determined by the `type` argument while running cypress in the CLI. <br/>
 
@@ -109,15 +140,15 @@ then `configs/foo/bar/daily.json` is used and merged with `./cypress.json`.
 
 This gives you an extra level of configuration for different test types where you need to target only specific spec files, all while keeping the package.json scripts part clean
 
-- **fixtures/foo/bar/routes.json**
+#### fixtures/foo/bar/routes.json
 
 Here is the place to define your `baseUrl` per each environment. See bellow where you can configure default environments when Hygen is run.
 
-- **cypress/integration/foo/bar/**
+#### cypress/integration/foo/bar/
 
 Here are your spec files as usual.
 
-- **cypress/support/foo/bar/**
+#### cypress/support/foo/bar/
 
 Your projects commands are here.
 
@@ -162,6 +193,8 @@ Here are some example commands:
 There is no need to specify test files. If test files are not specified they'll be automatically set(depending on `team` and `product` from CLI).
 
 ## Hygen part
+
+Hygen is used to generate templates and inject code into your structure when running `npm run add-project`.
 
 > You can modify the generator in `./_templates/project/with-prompt/`.
 > <br/>
