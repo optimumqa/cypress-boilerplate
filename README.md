@@ -17,34 +17,6 @@
 
 > Template for one or multiple products.<br /> `cypress-boilerplate` saves you from all of the trouble when configuring.
 
-## ✨ Project structure
-
-```
-- cypress/
-  - configs/
-    - team/
-      - project/
-        - default.json
-    - cypress.local.json
-  - downloads/
-  - fixtures/
-    - team/
-      - project/
-        routes.json
-  - integration/
-    - team/
-      - project/
-        - default.spec.ts
-  - plugins/
-  - screenshots/
-  - support/
-    - team/
-      - project/
-        - commands.ts
-    - commands.ts
-  - videos/
-```
-
 ## Adding a new product
 
 ### Example
