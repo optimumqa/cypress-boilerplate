@@ -19,7 +19,7 @@
 
 ## Table of contents
 
-- [Add a new product](#add-a-new-product)
+- [Getting started](#getting-started)
   - [Example](#example)
 - [Run](#run)
 - [How we use it](#how-we-use-it)
@@ -55,7 +55,7 @@
 - [Show your support](#show-your-support)
 - [📝 License](#---license)
 
-## Add a new product
+## Getting started
 
 `product` refers to your project.
 
