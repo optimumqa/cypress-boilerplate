@@ -1,8 +1,11 @@
+/// <reference types="@cypress-audit/lighthouse" />
+/// <reference types="cypress-iframe" />
+
 const moment = require('moment')
 import '@testing-library/cypress/add-commands'
 import 'cypress-localstorage-commands'
-// https://github.com/bahmutov/cypress-if
 import 'cypress-if'
+import 'cypress-iframe'
 
 // Hygen - ScriptsImport - Do not remove this comment
 

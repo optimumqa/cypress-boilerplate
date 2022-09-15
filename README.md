@@ -118,7 +118,7 @@ When tests is finished, your reports will be generated also. Keeps the command l
 
 ### Structure explained
 
-`configs/team/product`
+#### configs/team/product
 
 Here you can have different cypress configs per product. Which config is used is determined by the `type` argument while running cypress in the CLI. <br/>
 
@@ -144,19 +144,19 @@ This gives you an extra level of configuration for different test types where yo
 
 <br />
 
-`fixtures/foo/bar/routes.json`
+#### fixtures/foo/bar/routes.json
 
 Here is the place to define your `baseUrl` per each environment. See bellow where you can configure default environments when Hygen is run.
 
 <br />
 
-`cypress/integration/foo/bar/`
+#### cypress/integration/foo/bar/
 
 Here are your spec files as usual.
 
 <br />
 
-`cypress/support/foo/bar/`
+#### cypress/support/foo/bar/
 
 Your projects commands are here.
 
@@ -171,7 +171,7 @@ It is ignored by GIT.
 
 ## Project flow
 
-### Adding new custom scripts to package.json
+### Adding new custom commands to package.json
 
 Arguments
 
@@ -182,7 +182,7 @@ Arguments
 | `env`     | `String` | `staging` | Any environment you support                                                                           |
 | `type`    | `String` | `default` | Used for targeting specific config inside `configs/team/product/`. Daily, weekly, smoke, you name it. |
 
-Command Naming convention
+Follow the command naming convention
 
 - `team+product+environment+type`
 
@@ -230,9 +230,9 @@ npm run pretest
 
 ## Build & Delpoy
 
-Reports are deployed to [report-example.optimumqa.com](https://report-example.optimumqa.com)
+Reports are deployed to [your-reporting.domain.com](https://report-example.optimumqa.com)
 
-Rules for triggering build and deploy:
+Make sure to set rules for triggering build and deploy:
 
 - Pull request to `main` branch
 - Push to `main` branch
@@ -257,20 +257,151 @@ After running `posttest`, it will deploy the reports in `cypress/reports/mochawe
 
 If you have a custom domain, configure it in the `./CNAME`.
 
+Create a file named `CNAME` or Github will automatically create it when you enter your domain to Github pages in the settings of your repository.
+
 Example
 
 ```
-subdomain.your-domain.com
+// ./CNAME
+your-reporting.domain.com
 ```
 
 After tests are run, this file will be copied to report location automatically.
 
 To see how to configure Github pages in the repository settings, see [Github pages docs](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages).
 
+## What's inside?
+
+Here is a list of plugins and libraries that come with this boilerplate:
+
+### cypress-if
+
+[Github repository](https://github.com/bahmutov/cypress-if)
+
+Example usage:
+
+Checks the existence of the element and closes the dialog if exists.
+
+```js
+cy.get('dialog#survey').if('visible').contains('button', 'Close').click()
+```
+
+Amazing plugin! Make sure to [read the documentation](https://github.com/bahmutov/cypress-if#readme) to see what more it is capable of.
+
+### Prettier
+
+Keeps the code clean and same style for everyone working on the project.
+Make sure you have the [prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) installed in VSCode for it to work.
+
+Modify the config in `./.prettierrc`
+
+### FakerJS
+
+You might have projects where you need to use only one user the entire time. But there are times too when you need to set up new data every single time.
+[This library](https://fakerjs.dev/) gives you as much data as you want.
+
+```js
+import { faker } from '@faker-js/faker'
+
+const randomName = faker.name.fullName() // Rowan Nikolaus
+const randomEmail = faker.internet.email() // Kassandra.Haley@erich.biz
+```
+
+### cypress-iframe
+
+See the [documentation](https://www.npmjs.com/package/cypress-iframe).
+
+You can use the commands like described [here](https://www.npmjs.com/package/cypress-iframe#usage)
+
+### cypress-lighthouse
+
+See [how to implement and use it](https://glebbahmutov.com/blog/cypress-lighthouse/)
+
+Example usage:
+
+```js
+it('loads fast enough', () => {
+  cy.visit('/')
+  cy.lighthouse()
+})
+```
+
+### cypress-localstorage-commands
+
+[See documentation](https://www.npmjs.com/package/cypress-localstorage-commands).
+
+Example usage:
+
+```js
+beforeEach(() => {
+  cy.restoreLocalStorage()
+  cy.visit('/')
+})
+
+afterEach(() => {
+  cy.saveLocalStorage()
+})
+```
+
+### cypress-testing-library
+
+[See documentation](https://testing-library.com/docs/cypress-testing-library/intro/).
+
+Example usage:
+
+```js
+cy.findByRole('button', { name: /Jackie Chan/i }).click()
+cy.findByRole('button', { name: /Button Text/i }).should('exist')
+cy.findByRole('button', { name: /Non-existing Button Text/i }).should('not.exist')
+cy.findByLabelText(/Label text/i, { timeout: 7000 }).should('exist')
+
+// findByRole _inside_ a form element
+cy.get('form')
+  .findByRole('button', { name: /Button Text/i })
+  .should('exist')
+cy.findByRole('dialog').within(() => {
+  cy.findByRole('button', { name: /confirm/i })
+})
+```
+
+### momentjs
+
+[See documentation](https://momentjs.com/).
+
+Example usage:
+
+```js
+moment().format('MMMM Do YYYY, h:mm:ss a') // September 15th 2022, 4:15:18 am
+moment().format('dddd') // Thursday
+moment().format('MMM Do YY') // Sep 15th 22
+moment().format('YYYY [escaped] YYYY') // 2022 escaped 2022
+moment().format()
+```
+
+## Benefits of using this boilerplate project
+
+### No configuring the project
+
+With a clean, intuitive, and same project structure we keep everyone consistent across all projects.
+
+### Suitable for beginners and easy to use
+
+It may seem complicated, but as soon as you add your first project, everything will make sense and there is no turning back.
+
+### You can have 2 levels of separation
+
+Imagine you have a big project which has multiple teams working on. It may seem reasonable to create multiple new Cypress project for each part of that big project.
+
+With this template you dont have to. You can create as much teams, and products you want with great level of separation.
+Once any team runs their projects, only their commands and their code will be loaded into the Cypress test runner.
+
+You dont have to worry if your command names will override other teams or products, in fact you can even share global commands in `./cypress/support/commands.ts`
+
 ## Summary
 
 - Project is dynamically set up based on the four arguments above
 - If you specify `baseURL` or `testFiles` in configs, they will not be overwritten.
+- We can't imagine to work without this template, and hope you will feel the same :)
 
 ## 🤝 Contributing
 
