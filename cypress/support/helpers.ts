@@ -18,7 +18,7 @@ const tmpUsers = getFixture('users')[env]
 // This avoids using the same user when there are concurrent jobs and prevents tests from failing
 // Add a random number after user email
 // eg. test@gmail.com -> test+394@gmail.com
-tmpUsers.main.email = tmpUsers.main.email.replace('@', `+${Math.floor(Math.random() * 1000)}@`)
+tmpUsers.primary.email = tmpUsers.primary.email.replace('@', `+${Math.floor(Math.random() * 1000)}@`)
 
 export const users = tmpUsers
 

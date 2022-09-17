@@ -6,7 +6,7 @@ to: cypress/fixtures/<%- team %>/<%- project %>/users.json
 {
   <% environments.forEach((env, index) => { %>
   "<%= env %>": {
-    "main": {
+    "primary": {
       "name": "User name",
       "email": "test@cypress_template_test.com",
       "password": "user password"

@@ -187,6 +187,96 @@ This gives you an extra level of configuration for different test types where yo
 
 Here is the place to define your `baseUrl` and other URLs per each environment. See bellow where you can configure default environments when Hygen is run.
 
+Preview
+
+```json
+{
+  "staging": {
+    "baseUrl": "https://exaple.com",
+    "admin": "https://example.com/admin"
+  },
+  "release": {
+    "baseUrl": "https://exaple.com"
+  },
+  "production": {
+    "baseUrl": "https://exaple.com"
+  }
+}
+```
+
+Usage:
+
+```js
+import { routes } from '../../../support/helpers'
+
+describe('Should visit admin', () => {
+  it('Visit', () => {
+    cy.visit(routes.admin)
+  })
+})
+```
+
+`routes` will always return routes from current set environment, which in this case, is `staging`.
+
+### fixtures/foo/bar/users.json
+
+Here is the place to define your primary, seconday, etc. users list for your tests.
+
+By default, you can see
+
+Preview
+
+```json
+{
+  "staging": {
+    "primary": {
+      "name": "User name",
+      "email": "test@cypress_template_test.com",
+      "password": "user password"
+    }
+  },
+  "release": {
+    "primary": {
+      "name": "User name",
+      "email": "test@cypress_template_test.com",
+      "password": "user password"
+    }
+  },
+  "production": {
+    "primary": {
+      "name": "User name",
+      "email": "test@cypress_template_test.com",
+      "password": "user password"
+    }
+  }
+}
+```
+
+Usage:
+
+```js
+import { routes, users } from '../../../support/helpers'
+
+describe('Should visit admin', () => {
+  it('Visit and log in with primary user', () => {
+    cy.visit(routes.admin)
+    cy.logIn(users.primary)
+  })
+})
+```
+
+`users` will always return users from current set environment, which in this case, is `staging`.
+
+> Users are randomized with each run.
+
+Example every time you run Cypress, you will get a randomized email for the primary user.
+
+```
+johndoe@test.com will become johndoe+3283@test.com
+```
+
+You can disable this in `./cypress/support/helpers.ts`.
+
 #### cypress/e2e/foo/bar/
 
 Here are your spec files as usual.
