@@ -5,7 +5,7 @@ cypress/videos/
 cypress/screenshots/
 cypress/reports/
 cypress/downloads/
-cypress/configs/cypress.local.json
+cypress/configs/cypress.local.ts
 
 # OS specific
 .DS_Store
@@ -30,4 +30,3 @@ yarn-error.log*
 
 /tests/coverage/
 /tests/e2e/reports/
-selenium-debug.log

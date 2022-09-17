@@ -30,8 +30,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
-    "@testing-library/cypress": "^8.0.2",
-    "cypress": "^9.7.0",
+    "cypress": "^10.8.0",
     "cypress-if": "^1.7.1",
     "cypress-iframe": "^1.0.1",
     "hygen": "^6.2.11"

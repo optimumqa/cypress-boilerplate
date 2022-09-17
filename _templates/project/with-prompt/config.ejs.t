@@ -1,6 +1,6 @@
 ---
-to: cypress/configs/<%- team %>/<%- project %>/default.json
+to: cypress/configs/<%- team %>/<%- project %>/default.ts
 ---
 
-{}
+export default {}
 
