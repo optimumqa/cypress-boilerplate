@@ -247,7 +247,9 @@ describe('Example usage of helpers module', () => {
 
 ### Local config
 
-Create a file `cypress.local.ts` inside `./cypress/configs/`. Your local config will be then merged with the global config but not the specified CLI config.
+Create a file `cypress.local.ts` inside `./cypress/configs/`. Your local config will be then merged with the global config and product config.
+
+Here you can place your overrides.
 
 > If you need to temporarily disable this file, just rename it.
 > Example: cypress.local.ts -> cypress.local-tmp.ts
