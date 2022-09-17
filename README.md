@@ -83,15 +83,16 @@ The example from image above would create the following structure and inject new
 - configs/
   - foo/
     - bar/
-      default.json
+      default.ts
 - fixtures/
   - foo/
     - bar/
-      - routes.js
+      - routes.json
+      - users.json
 - e2e/
   - foo/
     - bar/
-      - default.spec.ts
+      - default.cy.ts
 - support/
   - foo/
     - bar/
@@ -117,9 +118,9 @@ $ npm run bar-staging
 {
   ...
   "scripts": {
-    "foo-bar-staging": "cypress run --env team=foo,product=bar,env=staging",
-    "foo-bar-release": "cypress run --env team=foo,product=bar,env=release",
-    "foo-bar-production": "cypress run --env team=foo,product=bar,env=production",
+    "foo-bar-staging": "cypress run -e team=foo,product=bar,env=staging",
+    "foo-bar-release": "cypress run -e team=foo,product=bar,env=release",
+    "foo-bar-production": "cypress run -e team=foo,product=bar,env=production",
   }
   ...
 }
@@ -182,28 +183,22 @@ then `configs/foo/bar/daily.ts` is used and merged with `./cypress.config.ts`.
 
 This gives you an extra level of configuration for different test types where you need to target only specific spec files, all while keeping the package.json scripts part clean
 
-<br />
-
 #### fixtures/foo/bar/routes.json
 
 Here is the place to define your `baseUrl` and other URLs per each environment. See bellow where you can configure default environments when Hygen is run.
-
-<br />
 
 #### cypress/e2e/foo/bar/
 
 Here are your spec files as usual.
 
-<br />
-
-#### cypress/support/foo/bar/
+#### cypress/support/e2e/foo/bar/
 
 Your projects commands are here.
 
 > If you have multiple projects, keep in mind that you will have access only to the commands from the `team + project` you've run in the CLI.
 > This is done so that commands from multiple products do not override each other if they're the same name.
 
-#### cypress/support/commands.ts
+#### cypress/support/e2e/commands.ts
 
 Here are your global commands.
 
@@ -278,9 +273,9 @@ Here are some example commands:
 ```json
 {
   "scripts": {
-    "foo-bar-staging": "cypress run --env team=foo,product=bar,env=staging",
-    "bar-master-daily": "cypress run --env product=bar,env=master,type=daily",
-    "bar-staging-weekly": "cypress run --env product=bar,env=staging,type=weekly"
+    "foo-bar-staging": "cypress run -e team=foo,product=bar,env=staging",
+    "bar-master-daily": "cypress run -e product=bar,env=master,type=daily",
+    "bar-staging-weekly": "cypress run -e product=bar,env=staging,type=weekly"
   }
 }
 ```
@@ -322,7 +317,7 @@ Example:
 
 ```json
 {
-  "test": "npm run your-product-staging || npm run posttest"
+  "test": "npm run your-product-staging"
 }
 ```
 
@@ -470,7 +465,7 @@ Imagine you have a big project which has multiple teams working on. It may seem 
 With this template you dont have to. You can create as much teams, and products you want with great level of separation.
 Once any team runs their projects, only their commands and their code will be loaded into the Cypress test runner.
 
-You dont have to worry if your command names will override other teams or products, in fact you can even share global commands in `./cypress/support/commands.ts`
+You dont have to worry if your command names will override other teams or products, in fact you can even share global commands in `./cypress/support/e2e/commands.ts`
 
 ## Hygen part
 
