@@ -2,7 +2,7 @@ export const product = Cypress.env('PRODUCT')
 export const team = Cypress.env('TEAM')
 export const env = Cypress.env('ENV')
 export const type = Cypress.env('TYPE')
-export const baseUrl = Cypress.config('baseUrl')
+export const baseUrl = Cypress.config('e2e').baseUrl
 
 const getProductPath = () => {
   return `${team ? team + '/' : ''}${product}`

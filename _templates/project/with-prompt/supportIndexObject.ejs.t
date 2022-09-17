@@ -1,5 +1,5 @@
 ---
-to: cypress/support/commands.ts
+to: cypress/support/e2e/commands.ts
 inject: true
 after: ObjectInsertion
 ---

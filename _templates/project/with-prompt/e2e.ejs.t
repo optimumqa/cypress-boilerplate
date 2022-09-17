@@ -1,5 +1,5 @@
 ---
-to: cypress/integration/<%- team %>/<%- project %>/default.spec.ts
+to: cypress/e2e/<%- team %>/<%- project %>/default.cy.ts
 ---
 
 describe('Default', () => {

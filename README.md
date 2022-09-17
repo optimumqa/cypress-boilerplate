@@ -27,7 +27,7 @@
   - [Structure explained](#structure-explained)
     - [configs/team/product](#configsteamproduct)
     - [fixtures/foo/bar/routes.json](#fixturesfoobarroutesjson)
-    - [cypress/integration/foo/bar/](#cypressintegrationfoobar)
+    - [cypress/e2e/foo/bar/](#cypresse2efoobar)
     - [cypress/support/foo/bar/](#cypresssupportfoobar)
     - [cypress/support/commands.ts](#cypresssupportcommandsts)
     - [cypress/support/helpers.ts](#cypresssupporthelpersts)
@@ -88,7 +88,7 @@ The example from image above would create the following structure and inject new
   - foo/
     - bar/
       - routes.js
-- integration/
+- e2e/
   - foo/
     - bar/
       - default.spec.ts
@@ -125,7 +125,7 @@ $ npm run bar-staging
 }
 ```
 
-When run, it will specify only the test files in `cypress/integration/foo/bar`.
+When run, it will specify only the test files in `cypress/e2e/foo/bar`.
 
 ## How we use it
 
@@ -139,7 +139,7 @@ Follow all the steps above then:
   ...
   "scripts": {
     ...
-    "test": "npm run foo-bar-staging || npm run posttest"
+    "test": "npm run foo-bar-staging"
     ...
   }
   ...
@@ -178,7 +178,7 @@ and then run it
 $ npm run foo-bar-staging-daily
 ```
 
-then `configs/foo/bar/daily.json` is used and merged with `./cypress.json`.
+then `configs/foo/bar/daily.ts` is used and merged with `./cypress.config.ts`.
 
 This gives you an extra level of configuration for different test types where you need to target only specific spec files, all while keeping the package.json scripts part clean
 
@@ -186,11 +186,11 @@ This gives you an extra level of configuration for different test types where yo
 
 #### fixtures/foo/bar/routes.json
 
-Here is the place to define your `baseUrl` per each environment. See bellow where you can configure default environments when Hygen is run.
+Here is the place to define your `baseUrl` and other URLs per each environment. See bellow where you can configure default environments when Hygen is run.
 
 <br />
 
-#### cypress/integration/foo/bar/
+#### cypress/e2e/foo/bar/
 
 Here are your spec files as usual.
 
@@ -247,7 +247,12 @@ describe('Example usage of helpers module', () => {
 
 ### Local config
 
-Create a file `cypress.local.json` inside ./configs/. Your local config will be then merged with the products config and global cypress.json.
+Create a file `cypress.local.ts` inside `./cypress/configs/`. Your local config will be then merged with the global config and product config.
+
+Here you can place your overrides.
+
+> If you need to temporarily disable this file, just rename it.
+> Example: cypress.local.ts -> cypress.local-tmp.ts
 
 It is ignored by GIT.
 
@@ -280,19 +285,7 @@ Here are some example commands:
 }
 ```
 
-There is no need to specify test files. If test files are not specified they'll be automatically set(depending on `team` and `product` from CLI).
-
-## Hygen part
-
-Hygen is used to generate templates and inject code into your structure when running `npm run add-project`.
-
-> You can modify the generator in `./_templates/project/with-prompt/`.
-> <br/>
-
-If you need to change default environments, they're declared in these files:
-
-- `./_templates/project/with-prompt/fixtures.ejs.t`
-- `./_templates/project/with-prompt/package.ejs.t`
+> There is no need to specify `specPattern`. If they're are not specified they'll be automatically set(depending on `team` and `product` from CLI).
 
 ## Reporting
 
@@ -479,10 +472,22 @@ Once any team runs their projects, only their commands and their code will be lo
 
 You dont have to worry if your command names will override other teams or products, in fact you can even share global commands in `./cypress/support/commands.ts`
 
+## Hygen part
+
+Hygen is used to generate templates and inject code into your structure when running `npm run add-project`.
+
+> You can modify the generator in `./_templates/project/with-prompt/`.
+> <br/>
+
+If you need to change default environments, they're declared in these files:
+
+- `./_templates/project/with-prompt/fixtures.ejs.t`
+- `./_templates/project/with-prompt/package.ejs.t`
+
 ## Summary
 
 - Project is dynamically set up based on the four arguments above
-- If you specify `baseURL` or `testFiles` in configs, they will not be overwritten.
+- If you specify `baseURL` or `specPattern` in configs, they will not be overwritten.
 - We can't imagine to work without this template, and hope you will feel the same :)
 
 ## 🤝 Contributing

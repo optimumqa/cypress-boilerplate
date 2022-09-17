@@ -1,5 +1,5 @@
 ---
-to: cypress/support/<%= team %>/<%= project %>/commands.ts
+to: cypress/support/e2e/<%= team %>/<%= project %>/commands.ts
 ---
 
 const commands = {}
