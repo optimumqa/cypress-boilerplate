@@ -27,6 +27,7 @@
   - [Structure explained](#structure-explained)
     - [configs/team/product](#configsteamproduct)
     - [fixtures/foo/bar/routes.json](#fixturesfoobarroutesjson)
+    - [fixtures/foo/bar/users.json](#fixturesfoobarusersjson)
     - [cypress/e2e/foo/bar/](#cypresse2efoobar)
     - [cypress/support/foo/bar/](#cypresssupportfoobar)
     - [cypress/support/commands.ts](#cypresssupportcommandsts)
