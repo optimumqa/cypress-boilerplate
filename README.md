@@ -3,6 +3,7 @@
 </div>
 
 </br>
+
 <a href="https://github.com/optimumqa/cypress-boilerplate/blob/main/LICENSE">
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
 </a>
@@ -592,6 +593,10 @@ Feel free to check [issues page](https://github.com/optimumqa/cypress-boilerplat
 ## Show your support
 
 Please ⭐️ this repository if this project helped you!
+
+[![Stargazers](https://reporoster.com/stars/optimumqa/cypress-boilerplate)](https://github.com/optimumqa/cypress-boilerplate/stargazers)
+</br>
+[![Forkers](https://reporoster.com/forks/optimumqa/cypress-boilerplate)](https://github.com/optimumqa/cypress-boilerplate/network/members)
 
 ## 📝 License
 
