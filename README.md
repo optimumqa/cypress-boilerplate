@@ -1,4 +1,7 @@
 <h1 align="center">Welcome to cypress-boilerplate 👋</h1>
+<div align="center"><b>Quickly generate</b> new projects, and start coding immediately with an <b>already pre-configured</b> project.<div> While using this boilerplate you and your team can focus more on coding, and less wory about configuration. This boilerplate is full of useful plugins already configured for you! Good luck!
+
+</br>
 <a href="https://github.com/optimumqa/cypress-boilerplate/blob/main/LICENSE">
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
 </a>
@@ -29,16 +32,16 @@
     - [fixtures/foo/bar/routes.json](#fixturesfoobarroutesjson)
     - [fixtures/foo/bar/users.json](#fixturesfoobarusersjson)
     - [cypress/e2e/foo/bar/](#cypresse2efoobar)
-    - [cypress/support/foo/bar/](#cypresssupportfoobar)
-    - [cypress/support/commands.ts](#cypresssupportcommandsts)
+    - [cypress/support/e2e/foo/bar/](#cypresssupporte2efoobar)
+    - [cypress/support/e2e/commands.ts](#cypresssupporte2ecommandsts)
     - [cypress/support/helpers.ts](#cypresssupporthelpersts)
   - [Local config](#local-config)
 - [Project flow](#project-flow)
   - [Adding new custom commands to package.json](#adding-new-custom-commands-to-packagejson)
 - [Hygen part](#hygen-part)
 - [Reporting](#reporting)
-- [Build & Delpoy](#build---delpoy)
-  - [Github Actions & Pages](#github-actions---pages)
+- [Build & Delpoy](#build--delpoy)
+  - [Github Actions & Pages](#github-actions--pages)
     - [Custom domain](#custom-domain)
 - [What's inside?](#what-s-inside-)
   - [cypress-if](#cypress-if)
