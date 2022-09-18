@@ -1,5 +1,6 @@
 <h1 align="center">Welcome to cypress-boilerplate 👋</h1>
 <div align="center"><b>Quickly generate</b> new projects, and start coding immediately with an <b>already pre-configured</b> project.<div> While using this boilerplate you and your team can focus more on coding, and less wory about configuration. This boilerplate is full of useful plugins already configured for you! Good luck!
+</div>
 
 </br>
 <a href="https://github.com/optimumqa/cypress-boilerplate/blob/main/LICENSE">
