@@ -558,6 +558,10 @@ Once any team runs their projects, only their commands and their code will be lo
 
 You dont have to worry if your command names will override other teams or products, in fact you can even share global commands in `./cypress/support/e2e/commands.ts`
 
+## Renovate
+
+Delete `renovate.json` if you don't use it.
+
 ## Hygen part
 
 Hygen is used to generate templates and inject code into your structure when running `npm run add-project`.
