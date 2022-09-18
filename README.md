@@ -1,5 +1,5 @@
 <h1 align="center">Welcome to cypress-boilerplate 👋</h1>
-<div align="center"><b>Quickly generate</b> new projects, and start coding immediately with an <b>already pre-configured</b> project. While using this boilerplate you and your team can focus <b>more on coding</b>, and <b>less wory</b> about configuration. This boilerplate is full of useful plugins already configured for you! Good luck!
+<div align="center"><b>Quickly generate</b> new projects, and start coding immediately with an <b>already pre-configured</b> project. While using this boilerplate you and your team can focus <b>more on coding</b>, and <b>less wory</b> about configuration. This boilerplate is full of useful plugins already configured, and much more! Good luck!
 </div>
 
 </br>
