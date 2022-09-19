@@ -84,7 +84,7 @@ gh repo clone optimumqa/cypress-boilerplate
 If you have cloned this repository, make sure to delete the `.git` directory:
 
 ```sh
-$ rm -rf .git
+$ cd cypress-boilerplate && rm -rf .git
 ```
 
 Also, don't forget to rename the project to your needs.
