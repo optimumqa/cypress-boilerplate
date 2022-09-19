@@ -25,6 +25,8 @@
 ## Table of contents
 
 - [Getting started](#getting-started)
+  - [Installation](#installation)
+  - [Add a new product](#add-a-new-product)
   - [Example](#example)
 - [Run](#run)
 - [How we use it](#how-we-use-it)
@@ -64,6 +66,30 @@
 - [📝 License](#---license)
 
 ## Getting started
+
+### Installation
+
+Download a .zip of this project or:
+
+```sh
+$ git clone git@github.com:optimumqa/cypress-boilerplate.git
+```
+
+or
+
+```sh
+gh repo clone optimumqa/cypress-boilerplate
+```
+
+If you have cloned this repository, make sure to delete the `.git` directory:
+
+```sh
+$ rm -rf .git
+```
+
+Also, don't forget to rename the project to your needs.
+
+### Add a new product
 
 `product` refers to your project.
 
