@@ -18,6 +18,7 @@
     "@optimumqa/cypress-setup-utilities": "^1.4.0",
     "cypress-localstorage-commands": "^2.0.0",
     "cypress-multi-reporters": "^1.6.0",
+    "cypress-terminal-report": "^4.1.2",
     "eslint": "^8.15.0",
     "eslint-plugin-cypress": "^2.12.1",
     "lodash": "^4.17.21",

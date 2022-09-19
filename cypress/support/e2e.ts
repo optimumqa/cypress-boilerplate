@@ -1,10 +1,13 @@
 import e2eCommands from './e2e/commands'
+import installLogsCollector from 'cypress-terminal-report/src/installLogsCollector'
 
 /**
  * Main function
  * Initializes global commands
  */
 const initialize = () => {
+  installLogsCollector()
+
   // Initialize e2e commands
   Object.keys(e2eCommands).forEach((name) => {
     Cypress.Commands.add(name, e2eCommands[name])
