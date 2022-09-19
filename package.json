@@ -1,5 +1,5 @@
 {
-  "name": "cypress-multi-product-template",
+  "name": "cypress-boilerplate",
   "version": "0.0.1",
   "description": "Cypress boilerplate",
   "main": "index.js",

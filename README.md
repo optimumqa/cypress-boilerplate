@@ -87,6 +87,12 @@ If you have cloned this repository, make sure to delete the `.git` directory:
 $ cd cypress-boilerplate && rm -rf .git
 ```
 
+then
+
+```sh
+npm install
+```
+
 Also, don't forget to rename the project to your needs.
 
 ### Add a new product
@@ -439,11 +445,13 @@ Example:
 
 ```json
 {
-  "test": "npm run your-product-staging"
+  "test": "npm run your-product-production"
 }
 ```
 
 After running `posttest`, it will deploy the reports in `cypress/reports/mochawesome` to your github page that you've configured.
+
+Make sure to set **gh-pages** as your branch to deploy from.
 
 #### Custom domain
 
