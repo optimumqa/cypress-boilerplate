@@ -4,9 +4,9 @@
 
 </br>
 
-<a href="https://github.com/optimumqa/cypress-boilerplate/blob/main/LICENSE">
-  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
-</a>
+[![Release new version](https://github.com/optimumqa/cypress-boilerplate/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/optimumqa/cypress-boilerplate/actions/workflows/release.yml)
+[![MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/optimumqa/cypress-boilerplate/blob/main/LICENSE)
+
 <a href="">
   <img alt="Cypress" src="https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e" target="_blank" />
 </a>
