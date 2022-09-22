@@ -1,4 +1,4 @@
-name: ci
+name: Release new version
 on: [push]
 jobs:
   release:
