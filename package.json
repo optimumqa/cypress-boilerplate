@@ -1,6 +1,6 @@
 {
   "name": "@optimumqa/cypress-boilerplate",
-  "version": "0.0.2",
+  "version": "0.0.0-development",
   "description": "Scaffolds a new cypress project for you",
   "bin": "index.js",
   "files": [
