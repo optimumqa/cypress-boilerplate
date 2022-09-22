@@ -73,7 +73,7 @@
 npx @optimumqa/cypress-boilerplate my-cypress-app
 ```
 
-Install dependencies
+Install dependencies:
 
 ```sh
 cd my-cypress-app
