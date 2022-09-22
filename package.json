@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/optimumqa/cypress-boilerplate/issues"
   },
-  "homepage": "https://github.com/optimumqa/cypress-boilerplate#readme"
+  "homepage": "https://github.com/optimumqa/cypress-boilerplate#readme",
+  "devDependencies": {
+    "semantic-release": "^19.0.5"
+  }
 }
