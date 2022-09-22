@@ -69,31 +69,16 @@
 
 ### Installation
 
-Download a .zip of this project or:
-
 ```sh
-$ git clone git@github.com:optimumqa/cypress-boilerplate.git
+npx @optimumqa/cypress-boilerplate my-cypress-app
 ```
 
-or
+Install dependencies
 
 ```sh
-gh repo clone optimumqa/cypress-boilerplate
-```
-
-If you have cloned this repository, make sure to delete the `.git` directory:
-
-```sh
-$ cd cypress-boilerplate && rm -rf .git
-```
-
-then
-
-```sh
+cd my-cypress-app
 npm install
 ```
-
-Also, don't forget to rename the project to your needs.
 
 ### Add a new product
 
