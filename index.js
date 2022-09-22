@@ -22,6 +22,10 @@ var copyRecursiveSync = function (src, dest) {
 function main() {
   const args = process.argv.slice(2)
   copyRecursiveSync(path.join(__dirname, 'templates'), args[0] || './optimumqa-cypress-boilerplate/')
+  console.log('\nDone.')
+  console.log(`\ncd ${args[0] || './optimumqa-cypress-boilerplate/'}`)
+  console.log('\nnpm install')
+  console.log('\nnpm run add-project')
 }
 
 if (require.main === module) {
