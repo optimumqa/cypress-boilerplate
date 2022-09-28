@@ -15,7 +15,7 @@
     "@faker-js/faker": "7.5.0",
     "@optimumqa/cypress-setup-utilities": "1.4.1",
     "cypress": "10.9.0",
-    "cypress-if": "1.8.0",
+    "cypress-if": "1.8.1",
     "cypress-iframe": "1.0.1",
     "cypress-localstorage-commands": "2.2.1",
     "cypress-multi-reporters": "1.6.1",
