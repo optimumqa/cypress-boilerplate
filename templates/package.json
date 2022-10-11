@@ -14,7 +14,7 @@
     "@cypress-audit/lighthouse": "1.3.1",
     "@faker-js/faker": "7.5.0",
     "@optimumqa/cypress-setup-utilities": "1.4.1",
-    "cypress": "10.9.0",
+    "cypress": "10.10.0",
     "cypress-if": "1.9.2",
     "cypress-iframe": "1.0.1",
     "cypress-localstorage-commands": "2.2.1",
