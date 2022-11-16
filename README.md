@@ -22,7 +22,6 @@
 
 > Template for one or multiple products.<br /> `cypress-boilerplate` saves you from all of the trouble when configuring.
 
-
 ## Table of contents
 
 - [Getting started](#getting-started)
