@@ -20,7 +20,7 @@
     "cypress-iframe": "1.0.1",
     "cypress-localstorage-commands": "2.2.2",
     "cypress-multi-reporters": "1.6.2",
-    "cypress-terminal-report": "5.0.0",
+    "cypress-terminal-report": "5.0.2",
     "eslint": "8.34.0",
     "eslint-plugin-cypress": "2.12.1",
     "hygen": "6.2.11",
