@@ -16,7 +16,7 @@
     "@optimumqa/cypress-setup-utilities": "1.5.1",
     "@optimumqa/cypress-store": "1.0.2",
     "cypress": "11.2.0",
-    "cypress-if": "1.10.3",
+    "cypress-if": "1.10.4",
     "cypress-iframe": "1.0.1",
     "cypress-localstorage-commands": "2.2.2",
     "cypress-multi-reporters": "1.6.2",
