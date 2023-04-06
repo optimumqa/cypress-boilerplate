@@ -18,7 +18,7 @@
     "cypress": "11.2.0",
     "cypress-if": "1.10.4",
     "cypress-iframe": "1.0.1",
-    "cypress-localstorage-commands": "2.2.2",
+    "cypress-localstorage-commands": "2.2.3",
     "cypress-multi-reporters": "1.6.3",
     "cypress-terminal-report": "5.0.2",
     "eslint": "8.37.0",
