@@ -1,9 +1,6 @@
-/// <reference types="@cypress-audit/lighthouse" />
 /// <reference types="cypress-iframe" />
 
-const moment = require('moment')
 import 'cypress-localstorage-commands'
-import 'cypress-if'
 import 'cypress-iframe'
 
 // Hygen - ScriptsImport - Do not remove this comment
@@ -14,9 +11,10 @@ const productsCommands = {
 }
 
 const getProductCommands = () => {
-  return productsCommands[`${Cypress.env('product')}`]
+  return productsCommands[`${Cypress.env('product')}`][`${Cypress.env('product')}`]
 }
 
+// Shared commands (always loaded)
 const commands = {}
 
 export default {

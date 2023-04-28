@@ -4,4 +4,4 @@ inject: true
 after: ScriptsImport
 ---
 
-import <%= team ? team + '_' : '' -%><%= project -%> from './<%= team ? team + '/' : '' -%><%= project -%>'
+import <%= project -%> from './<%= project -%>'

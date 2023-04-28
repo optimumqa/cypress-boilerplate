@@ -2,8 +2,14 @@
   "compilerOptions": {
     "target": "es6",
     "lib": ["es6", "dom"],
-    "types": ["cypress"],
-    "esModuleInterop": true
+    "types": ["node"],
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "baseUrl": "./cypress",
+    "paths": {
+      "@support/*": ["support/*"],
+      "@fixtures/*": ["fixtures/*"]
+    }
   },
   "include": ["**/*.ts"]
 }

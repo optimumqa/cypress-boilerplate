@@ -1,5 +1,5 @@
 ---
-to: cypress/configs/<%- team %>/<%- project %>/default.ts
+to: cypress/configs/<%- project %>/default.ts
 ---
 
 export default {}

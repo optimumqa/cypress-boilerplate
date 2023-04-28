@@ -1,11 +1,10 @@
 export const product = Cypress.env('PRODUCT')
-export const team = Cypress.env('TEAM')
 export const env = Cypress.env('ENV')
 export const type = Cypress.env('TYPE')
 export const baseUrl = Cypress.config('e2e').baseUrl
 
 const getProductPath = () => {
-  return `${team ? team + '/' : ''}${product}`
+  return `${product}`
 }
 
 export const getFixture = (fileName) => {
@@ -26,6 +25,6 @@ export const getUrl = (name) => {
   return getFixture('routes')[env][name]
 }
 
-export const getCustomUrl = ({ _product, _team, _name }) => {
+export const getCustomUrl = ({ _name }) => {
   return getFixture('routes')[env][_name]
 }

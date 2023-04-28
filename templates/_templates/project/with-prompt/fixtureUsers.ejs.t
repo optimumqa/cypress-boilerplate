@@ -1,5 +1,5 @@
 ---
-to: cypress/fixtures/<%- team %>/<%- project %>/users.json
+to: cypress/fixtures/<%- project %>/users.json
 ---
 
 <% const environments = ["staging", "release", "production"] %>

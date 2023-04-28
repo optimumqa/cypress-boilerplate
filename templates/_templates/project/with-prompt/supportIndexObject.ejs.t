@@ -4,4 +4,4 @@ inject: true
 after: ObjectInsertion
 ---
 
-<%= team ? team + '_' : '' -%><%= project -%>,
+<%= project -%>,
