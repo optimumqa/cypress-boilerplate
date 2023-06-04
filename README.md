@@ -152,8 +152,6 @@ Then simply run:
 $ npm test
 ```
 
-`npm test` will automatically call the `npm pretest` command before it executes. It clears previous reports and related assets.
-
 When tests is finished, your reports will be generated also. Keeps the command line clean and simple.
 
 ### Structure explained
@@ -448,10 +446,6 @@ afterEach(() => {
 
 With a clean, intuitive, and same project structure we keep everyone consistent across all projects.
 
-### Suitable for beginners and easy to use
-
-It may seem complicated, but as soon as you add your first project, everything will make sense and there is no turning back.
-
 ## Renovate
 
 Delete `renovate.json` if you don't use it.
@@ -465,7 +459,8 @@ Hygen is used to generate templates and inject code into your structure when run
 
 If you need to change default environments, they're declared in these files:
 
-- `./_templates/project/with-prompt/fixtures.ejs.t`
+- `./_templates/project/with-prompt/fixtureRoutes.ejs.t`
+- `./_templates/project/with-prompt/fixtureUsers.ejs.t`
 - `./_templates/project/with-prompt/package.ejs.t`
 
 ## Summary
