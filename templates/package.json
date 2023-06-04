@@ -22,7 +22,7 @@
     "@shelex/cypress-allure-plugin": "^2.39.1",
     "@types/node": "^18.14.0",
     "allure-commandline": "^2.22.1",
-    "cypress": "12.11.0",
+    "cypress": "12.13.0",
     "cypress-iframe": "1.0.1",
     "cypress-localstorage-commands": "2.2.3",
     "cypress-multi-reporters": "1.6.3",
