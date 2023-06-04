@@ -3,6 +3,12 @@ import { defineConfig } from 'cypress'
 import plugins from './cypress/plugins'
 
 const finalConfig = defineConfig({
+  viewportWidth: 1920,
+  viewportHeight: 1080,
+  env: {
+    allure: true,
+    allureReuseAfterSpec: true,
+  },
   e2e: {
     defaultCommandTimeout: 30000,
     pageLoadTimeout: 30000,

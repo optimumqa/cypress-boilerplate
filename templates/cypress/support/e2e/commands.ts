@@ -1,7 +1,8 @@
-/// <reference types="cypress-iframe" />
-
 import 'cypress-localstorage-commands'
 import 'cypress-iframe'
+import '@shelex/cypress-allure-plugin';
+import 'cypress-plugin-api';
+import 'cypress-plugin-steps';
 
 // Hygen - ScriptsImport - Do not remove this comment
 

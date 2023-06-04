@@ -13,6 +13,12 @@ const initialize = () => {
   Cypress.on('uncaught:exception', () => {
     return false
   })
+
+  // Display spec file name on top of suite
+  Cypress.Allure.reporter.getInterface().defineSuiteLabels((titlePath, fileInfo) => {
+    titlePath[0] = `${fileInfo.name} | ${titlePath[0]}`;
+    return titlePath;
+  });
 }
 
 initialize()

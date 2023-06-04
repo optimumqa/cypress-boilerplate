@@ -1,7 +1,7 @@
 {
   "name": "@optimumqa/cypress-boilerplate",
-  "version": "0.0.0-development",
-  "description": "Scaffolds a new cypress project for you",
+  "version": "1.0.0",
+  "description": "Scaffolds a new cypress project",
   "bin": "index.js",
   "files": [
     "templates/",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/optimumqa/cypress-boilerplate#readme",
   "devDependencies": {
-    "semantic-release": "21.0.1"
+    "semantic-release": "21.0.3"
   },
   "scripts": {
     "semantic-release": "semantic-release"
