@@ -86,7 +86,7 @@ It will ask you for your:
 - **product** name
 - **baseUrl**
 
-The example from image above would create the following structure and inject new scripts in package.json.
+The command from above would create the following structure and inject new scripts in package.json.
 
 ```
 - configs/
@@ -191,14 +191,14 @@ Preview
 ```json
 {
   "staging": {
-    "baseUrl": "https://exaple.com",
+    "baseUrl": "https://example.com",
     "admin": "https://example.com/admin"
   },
   "release": {
-    "baseUrl": "https://exaple.com"
+    "baseUrl": "https://example.com"
   },
   "production": {
-    "baseUrl": "https://exaple.com"
+    "baseUrl": "https://example.com"
   }
 }
 ```
@@ -265,16 +265,6 @@ describe('Should visit admin', () => {
 ```
 
 `users` will always return users from current set environment, which in this case, is `staging`.
-
-> Users are randomized with each run.
-
-Example every time you run Cypress, you will get a randomized email for the primary user.
-
-```
-johndoe@test.com will become johndoe+3283@test.com
-```
-
-You can disable this in `./cypress/support/helpers.ts`.
 
 #### cypress/e2e/foo/
 
@@ -361,6 +351,7 @@ Here are some example commands:
 {
   "scripts": {
     "foo-staging": "cypress run -e product=foo,env=staging",
+    "foo-staging.open": "cypress open -e product=foo,env=staging",
     "foo-master-daily": "cypress run -e product=foo,env=master,type=daily",
     "foo-staging-weekly": "cypress run -e product=foo,env=staging,type=weekly"
   }
@@ -371,18 +362,50 @@ Here are some example commands:
 
 ## Reporting
 
+Two reporters are enabled
+
+### Mochawesome
+
 Location: `cypress/reports/mochawesome`
 
 Reports will only be generated with the command:
 
 ```sh
-npm run posttest
+npm run mocha.combine-reports
+npm run mocha.generate-reports
 ```
 
 Make sure to clear previous reports before running your tests with the command:
 
 ```sh
-npm run pretest
+npm run mocha.clear
+```
+
+### Allure
+
+Location: `allure-results`
+
+Report will be created automatically if you have `allure: true` inside your `cypress.config.js`.
+
+To view the latest report you can run
+
+```sh
+npm run allure.start
+```
+
+To preserve the history trend, run:
+
+> Be careful not deleting the `allure-results/history` when preserving it.
+
+```sh
+npm run allure.report
+npm run allure.history
+```
+
+Then start the allure
+
+```sh
+npm run allure.start
 ```
 
 ## What's inside?
