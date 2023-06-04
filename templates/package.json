@@ -20,7 +20,7 @@
     "@optimumqa/cypress-setup-utilities": "1.6.0",
     "@optimumqa/cypress-store": "1.0.2",
     "@shelex/cypress-allure-plugin": "^2.39.1",
-    "@types/node": "^18.14.0",
+    "@types/node": "^14.18.43",
     "allure-commandline": "^2.22.1",
     "cypress": "12.11.0",
     "cypress-iframe": "1.0.1",
