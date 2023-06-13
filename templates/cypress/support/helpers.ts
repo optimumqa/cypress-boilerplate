@@ -26,22 +26,22 @@ const localUsers = localUsersFile && localUsersFile[env];
 // tmpUsers.primary.email = tmpUsers.primary.email.replace('@', `+${Math.floor(Math.random() * 1000)}@`)
 
 tmpUsers.primary.name = (
-  Cypress.env('SECONDARY_USER') ||
+  Cypress.env('PRIMARY_USER') ||
   (localUsers && localUsers.primary.name) ||
   tmpUsers.primary.name
 ).toLowerCase();
 
 tmpUsers.secondary.name = (
-  Cypress.env('SECONDARY_USER_PW') ||
-  (localUsers && localUsers.primary.name) ||
+  Cypress.env('SECONDARY_USER') ||
+  (localUsers && localUsers.secondary.name) ||
   tmpUsers.secondary.name
 ).toLowerCase();
 
 tmpUsers.primary.password =
-  Cypress.env('PRIMARY_USER') || (localUsers && localUsers.primary.password) || tmpUsers.primary.password;
+  Cypress.env('PRIMARY_USER_PW') || (localUsers && localUsers.primary.password) || tmpUsers.primary.password;
 
 tmpUsers.secondary.password =
-  Cypress.env('PRIMARY_USER_PW') || (localUsers && localUsers.primary.password) || tmpUsers.secondary.password;
+  Cypress.env('SECONDARY_USER_PW') || (localUsers && localUsers.secondary.password) || tmpUsers.secondary.password;
 
 export const users = tmpUsers
 
