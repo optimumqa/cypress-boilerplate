@@ -8,7 +8,11 @@ const getProductPath = () => {
 }
 
 export const getFixture = (fileName) => {
-  return require(`../fixtures/${getProductPath()}/${fileName}.json`)
+  try {
+    return require(`../fixtures/${getProductPath()}/${fileName}.json`)
+  } catch (error) {
+    console.warn('users.local.json not existing')
+  }
 }
 
 export const routes = getFixture('routes').envs[env]
