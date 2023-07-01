@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@optimumqa/cypress-setup-utilities": "1.6.1",
-    "@optimumqa/cypress-store": "1.0.2",
+    "@optimumqa/cypress-store": "1.0.3",
     "@shelex/cypress-allure-plugin": "^2.40.0",
     "@types/node": "^18.14.0",
     "allure-commandline": "^2.22.1",
