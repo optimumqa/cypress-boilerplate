@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/optimumqa/cypress-boilerplate#readme",
   "devDependencies": {
-    "semantic-release": "21.0.3"
+    "semantic-release": "21.0.6"
   },
   "scripts": {
     "semantic-release": "semantic-release"
