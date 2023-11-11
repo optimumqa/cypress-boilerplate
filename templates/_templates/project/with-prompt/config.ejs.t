@@ -1,6 +1,8 @@
 ---
-to: cypress/configs/<%- project %>/default.ts
+to: cypress/configs/<%- project %>/global.ts
 ---
 
-export default {}
+export default {
+  // Place global Cypress configuration here that will apply only for this project
+}
 

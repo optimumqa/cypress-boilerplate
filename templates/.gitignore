@@ -5,7 +5,12 @@ cypress/videos/
 cypress/screenshots/
 cypress/reports/
 cypress/downloads/
-cypress/configs/cypress.local.ts
+cypress.local*.ts
+users.local*.json
+
+# Allure
+allure-results/
+allure-report/
 
 # OS specific
 .DS_Store
