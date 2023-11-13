@@ -17,7 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@optimumqa/cypress-setup-utilities": "1.6.1",
+    "@optimumqa/cypress-setup-utilities": "1.7.0",
     "@optimumqa/cypress-store": "1.0.3",
     "@shelex/cypress-allure-plugin": "^2.40.0",
     "@types/node": "^18.14.0",
